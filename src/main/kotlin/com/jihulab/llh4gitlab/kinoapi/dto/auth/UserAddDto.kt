@@ -1,7 +1,6 @@
-package com.jihulab.llh4gitlab.kinoapi.dto
+package com.jihulab.llh4gitlab.kinoapi.dto.auth
 
-import com.fasterxml.jackson.annotation.JsonIgnore
-import com.jihulab.llh4gitlab.kinoapi.model.RoleInput
+import com.jihulab.llh4gitlab.kinoapi.dto.BaseDto
 import io.swagger.v3.oas.annotations.media.Schema
 import javax.validation.constraints.NotEmpty
 

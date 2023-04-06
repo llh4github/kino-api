@@ -11,4 +11,6 @@ import org.mapstruct.factory.Mappers
 object DtoConvert {
     val role: RoleDtoConvert = Mappers.getMapper(RoleDtoConvert::class.java)
     val user: UserDtoConvert = Mappers.getMapper(UserDtoConvert::class.java)
+    val permission: PermissionDtoConvert = Mappers.getMapper(PermissionDtoConvert::class.java)
+    val insideUrl = Mappers.getMapper(InsideUrlConvert::class.java)
 }

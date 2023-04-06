@@ -1,5 +1,6 @@
 package com.jihulab.llh4gitlab.kinoapi.api
 
+import cn.dev33.satoken.stp.StpUtil
 import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
 import com.jihulab.llh4gitlab.kinoapi.dto.BaseDto
 import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
@@ -34,10 +35,12 @@ abstract class BaseApi {
         val now = LocalDateTime.now()
         model.createdTime = now
         model.updatedTime = now
+        model.createdBy = StpUtil.getLoginIdAsInt()
     }
 
     fun <T : BaseDto> fillUpdateInfo(model: T) {
         val now = LocalDateTime.now()
         model.updatedTime = now
+        model.updatedBy = StpUtil.getLoginIdAsInt()
     }
 }

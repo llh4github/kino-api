@@ -1,10 +1,9 @@
-package com.jihulab.llh4gitlab.kinoapi.model
+package com.jihulab.llh4gitlab.kinoapi.model.auth
 
+import com.jihulab.llh4gitlab.kinoapi.model.BaseModel
+import com.jihulab.llh4gitlab.kinoapi.model.BaseModelInput
 import org.babyfish.jimmer.Input
-import org.babyfish.jimmer.sql.Column
-import org.babyfish.jimmer.sql.Entity
-import org.babyfish.jimmer.sql.ManyToMany
-import org.babyfish.jimmer.sql.Table
+import org.babyfish.jimmer.sql.*
 import org.mapstruct.BeanMapping
 import org.mapstruct.Mapper
 import org.mapstruct.ReportingPolicy
@@ -25,11 +24,24 @@ interface Role : BaseModel {
 
     @ManyToMany(mappedBy = "roles")
     val users: List<User>
+
+    @ManyToMany
+    @JoinTable(
+        name = "link_role_permission",
+        joinColumnName = "role_id",
+        inverseJoinColumnName = "permission_id"
+    )
+    val permissions: List<Permission>
+
+    @IdView("permissions")
+    val permissionIds: List<Int>
 }
 
 data class RoleInput(
-    var code: String? = null,
-    var name: String? = null,
+    val code: String? = null,
+    val name: String? = null,
+    val permissionIds: List<Int> = mutableListOf(),
+    val permissions: List<PermissionInput> = mutableListOf(),
 ) : BaseModelInput(), Input<Role> {
     override fun toEntity(): Role = CONVERTER.toModel(this)
 

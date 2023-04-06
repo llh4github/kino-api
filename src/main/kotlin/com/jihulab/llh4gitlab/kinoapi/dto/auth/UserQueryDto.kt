@@ -1,4 +1,4 @@
-package com.jihulab.llh4gitlab.kinoapi.dto
+package com.jihulab.llh4gitlab.kinoapi.dto.auth
 
 import io.swagger.v3.oas.annotations.media.Schema
 

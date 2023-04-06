@@ -1,14 +1,20 @@
-package com.jihulab.llh4gitlab.kinoapi.service.impl
+package com.jihulab.llh4gitlab.kinoapi.service.auth.impl
 
+import cn.dev33.satoken.stp.StpUtil
+import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.UserAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.UserQueryDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.LoginDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.LoginTokenDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.UserAddDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.UserQueryDto
 import com.jihulab.llh4gitlab.kinoapi.dto.convert.DtoConvert
-import com.jihulab.llh4gitlab.kinoapi.model.User
-import com.jihulab.llh4gitlab.kinoapi.model.id
-import com.jihulab.llh4gitlab.kinoapi.model.username
-import com.jihulab.llh4gitlab.kinoapi.repository.UserRepository
-import com.jihulab.llh4gitlab.kinoapi.service.UserService
+import com.jihulab.llh4gitlab.kinoapi.exception.AppException
+import com.jihulab.llh4gitlab.kinoapi.model.auth.User
+import com.jihulab.llh4gitlab.kinoapi.model.auth.id
+import com.jihulab.llh4gitlab.kinoapi.model.auth.username
+import com.jihulab.llh4gitlab.kinoapi.repository.auth.UserRepository
+import com.jihulab.llh4gitlab.kinoapi.service.auth.UserService
+import com.jihulab.llh4gitlab.kinoapi.util.checkPwd
 import com.jihulab.llh4gitlab.kinoapi.util.hashPwd
 import org.apache.logging.log4j.kotlin.Logging
 import org.babyfish.jimmer.sql.kt.ast.expression.count
@@ -26,9 +32,23 @@ class UserServiceImpl(
         return userRepository.findNullable(id)
     }
 
+    override fun login(dto: LoginDto): LoginTokenDto {
+        val u = findByUsername(dto.username) ?: throw AppException(ErrorCode.USER_PWD_ERROR)
+        if (!checkPwd(dto.password, u.password)) {
+            logger.info("用户 ${dto.username} 输入密码错误")
+            throw AppException(ErrorCode.USER_PWD_ERROR)
+        }
+        StpUtil.login(u.id)
+        val info = StpUtil.getTokenInfo()
+        return LoginTokenDto(
+            username = u.username,
+            accessToken = info.tokenValue
+        )
+    }
+
     @Transactional
     override fun addByDto(dto: UserAddDto): Boolean {
-        val input = DtoConvert.user.toUserInput(dto)
+        val input = DtoConvert.user.toDbInput(dto)
         input.password = hashPwd(dto.password)
 
         userRepository.insert(input)

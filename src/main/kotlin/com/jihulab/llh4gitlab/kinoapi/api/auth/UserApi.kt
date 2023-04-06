@@ -1,13 +1,14 @@
-package com.jihulab.llh4gitlab.kinoapi.api
+package com.jihulab.llh4gitlab.kinoapi.api.auth
 
+import com.jihulab.llh4gitlab.kinoapi.api.BaseApi
 import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
 import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.UserAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.UserQueryDto
-import com.jihulab.llh4gitlab.kinoapi.model.User
-import com.jihulab.llh4gitlab.kinoapi.service.RoleService
-import com.jihulab.llh4gitlab.kinoapi.service.UserService
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.UserAddDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.UserQueryDto
+import com.jihulab.llh4gitlab.kinoapi.model.auth.User
+import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
+import com.jihulab.llh4gitlab.kinoapi.service.auth.UserService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.data.domain.Page

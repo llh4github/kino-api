@@ -1,6 +1,8 @@
-package com.jihulab.llh4gitlab.kinoapi.model
+package com.jihulab.llh4gitlab.kinoapi.model.auth
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.jihulab.llh4gitlab.kinoapi.model.BaseModel
+import com.jihulab.llh4gitlab.kinoapi.model.BaseModelInput
 import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.*
 import org.mapstruct.BeanMapping
@@ -38,8 +40,8 @@ interface User : BaseModel {
 data class UserInput(
     var username: String? = null,
     var password: String? = null,
-    var roles: List<RoleInput> = emptyList(),
-    var roleIds: List<Int> = emptyList(),
+    val roles: List<RoleInput> = mutableListOf(),
+    val roleIds: List<Int> = mutableListOf(),
 ) : BaseModelInput(), Input<User> {
     override fun toEntity(): User = CONVERTER.toUser(this)
 

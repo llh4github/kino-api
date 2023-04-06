@@ -1,5 +1,6 @@
 package com.jihulab.llh4gitlab.kinoapi.service.impl
 
+import com.jihulab.llh4gitlab.kinoapi.service.auth.impl.RoleServiceImpl
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
