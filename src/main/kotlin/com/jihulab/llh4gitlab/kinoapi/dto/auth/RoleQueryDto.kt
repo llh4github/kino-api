@@ -1,4 +1,4 @@
-package com.jihulab.llh4gitlab.kinoapi.dto
+package com.jihulab.llh4gitlab.kinoapi.dto.auth
 
 /**
  *

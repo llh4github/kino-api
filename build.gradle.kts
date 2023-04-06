@@ -5,8 +5,8 @@ plugins {
     id("io.spring.dependency-management") version "1.1.0"
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
-    kotlin("kapt") version "1.7.22"
     id("com.google.devtools.ksp") version "1.7.22-1.0.8"
+    kotlin("kapt") version "1.7.22"
 }
 
 group = "com.jihulab.llh4gitlab"
@@ -24,16 +24,19 @@ repositories {
 }
 
 dependencies {
-    val jimmerVersion = "0.7.14"
+
+    val jimmerVersion = "0.7.19"
     val saTokenVersion = "1.34.0"
     val springdocVersion = "2.0.2"
+
+    testImplementation("com.apifan.common:common-random:1.0.19")
     //region 安全框架
     implementation("cn.dev33:sa-token-spring-boot3-starter:${saTokenVersion}")
     implementation("cn.dev33:sa-token-dao-redis-jackson:${saTokenVersion}")
     //endregion
+
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}")
-    implementation("org.apache.logging.log4j:log4j-api-kotlin:1.2.0")
-    testImplementation("com.apifan.common:common-random:1.0.19")
+
     //region jimmer框架
     implementation("org.babyfish.jimmer:jimmer-spring-boot-starter:${jimmerVersion}")
     ksp("org.babyfish.jimmer:jimmer-ksp:${jimmerVersion}")
@@ -41,19 +44,15 @@ dependencies {
     kapt("org.mapstruct:mapstruct-processor:1.5.3.Final")
     kapt("org.babyfish.jimmer:jimmer-mapstruct-apt:${jimmerVersion}")
     //endregion
-
-    //region 数据库
-    runtimeOnly("org.postgresql:postgresql")
-    implementation("org.flywaydb:flyway-core")
-    implementation("org.flywaydb:flyway-postgresql")
-    //endregion
-
+    implementation("org.apache.logging.log4j:log4j-api-kotlin:1.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+    runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
@@ -64,6 +63,8 @@ tasks.withType<KotlinCompile> {
         jvmTarget = "17"
     }
 }
+
+
 kotlin {
     sourceSets.main {
         kotlin.srcDir("build/generated/ksp/main/kotlin")

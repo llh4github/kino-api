@@ -1,11 +1,14 @@
-package com.jihulab.llh4gitlab.kinoapi.api
+package com.jihulab.llh4gitlab.kinoapi.api.auth
 
+import com.jihulab.llh4gitlab.kinoapi.api.BaseApi
+import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
 import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.RoleAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.RoleQueryDto
-import com.jihulab.llh4gitlab.kinoapi.model.Role
-import com.jihulab.llh4gitlab.kinoapi.service.RoleService
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleAddDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleQueryDto
+import com.jihulab.llh4gitlab.kinoapi.model.auth.Role
+import com.jihulab.llh4gitlab.kinoapi.service.auth.PermissionService
+import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.data.domain.Page
@@ -21,7 +24,8 @@ import javax.validation.Valid
 @RestController
 @RequestMapping("auth/role")
 class RoleApi(
-    private val service: RoleService
+    private val service: RoleService,
+    private val permissionService: PermissionService,
 ) : BaseApi() {
 
     @GetMapping("page")
@@ -34,7 +38,15 @@ class RoleApi(
     @PostMapping("add")
     @Operation(summary = "添加角色数据")
     fun addByVo(@RequestBody @Valid dto: RoleAddDto): JsonWrapper<Boolean> {
+        if (service.hasCode(dto.code)) {
+            return error(ErrorCode.DUPLICATE)
+        }
         fillCreateInfo(dto)
+        dto.permissionIds?.let {
+            if (it.isNotEmpty()) {
+                dto.permissionIds = permissionService.idsInDb(it)
+            }
+        }
         val saved = service.addByDto(dto)
         return ok(saved)
     }

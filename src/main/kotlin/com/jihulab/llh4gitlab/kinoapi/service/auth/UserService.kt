@@ -1,9 +1,11 @@
-package com.jihulab.llh4gitlab.kinoapi.service
+package com.jihulab.llh4gitlab.kinoapi.service.auth
 
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.UserAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.UserQueryDto
-import com.jihulab.llh4gitlab.kinoapi.model.User
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.LoginDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.LoginTokenDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.UserAddDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.UserQueryDto
+import com.jihulab.llh4gitlab.kinoapi.model.auth.User
 import org.springframework.data.domain.Page
 
 /**
@@ -15,6 +17,8 @@ interface UserService {
     fun findById(id: Int): User?
 
     fun addByDto(dto: UserAddDto): Boolean
+
+    fun login(dto: LoginDto): LoginTokenDto
 
     /**
      * 用户名[username]是否已经存在。返回true则存在

@@ -1,6 +1,6 @@
-package com.jihulab.llh4gitlab.kinoapi.repository
+package com.jihulab.llh4gitlab.kinoapi.repository.auth
 
-import com.jihulab.llh4gitlab.kinoapi.model.User
+import com.jihulab.llh4gitlab.kinoapi.model.auth.User
 import org.babyfish.jimmer.spring.repository.KRepository
 
 /**
