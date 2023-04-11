@@ -161,3 +161,27 @@ ALTER TABLE "public"."link_url_permission"
     OWNER TO "postgres";
 
 COMMENT ON TABLE "public"."link_url_permission" IS '应用内部url对应的权限关系表';
+
+CREATE TABLE "public"."inner_organization"
+(
+    "id"           serial4                                     NOT NULL,
+    "created_time" TIMESTAMP(6)                                NOT NULL DEFAULT now(),
+    "updated_time" TIMESTAMP(6)                                NOT NULL DEFAULT now(),
+    "updated_by"   INT4,
+    "created_by"   INT4,
+    "name" text COLLATE "pg_catalog"."default" NOT NULL,
+    "parent_id" int4,
+    CONSTRAINT "inner_organization_pk" PRIMARY KEY ("id"),
+    CONSTRAINT "inner_organization_name_key" UNIQUE ("name")
+);
+ALTER TABLE "public"."inner_organization"
+    OWNER TO "postgres";
+
+COMMENT ON COLUMN "public"."inner_organization"."created_time" IS '创建时间';
+COMMENT ON COLUMN "public"."inner_organization"."updated_time" IS '更新时间';
+COMMENT ON COLUMN "public"."inner_organization"."updated_by" IS '更新者';
+COMMENT ON COLUMN "public"."inner_organization"."created_by" IS '创建者';
+COMMENT ON COLUMN "public"."inner_organization"."name" IS '组织名称';
+COMMENT ON COLUMN "public"."inner_organization"."parent_id" IS '上级组织ID';
+COMMENT ON TABLE "public"."inner_organization" IS '组织表';
+

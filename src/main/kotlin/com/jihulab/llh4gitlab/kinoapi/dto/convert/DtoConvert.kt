@@ -13,4 +13,5 @@ object DtoConvert {
     val user: UserDtoConvert = Mappers.getMapper(UserDtoConvert::class.java)
     val permission: PermissionDtoConvert = Mappers.getMapper(PermissionDtoConvert::class.java)
     val insideUrl = Mappers.getMapper(InsideUrlConvert::class.java)
+    val organization = Mappers.getMapper(OrganizationConvert::class.java)
 }
