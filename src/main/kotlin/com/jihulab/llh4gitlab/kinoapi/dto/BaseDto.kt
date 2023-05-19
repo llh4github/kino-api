@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.jihulab.llh4gitlab.kinoapi.contanst.DateTimeConst
 import io.swagger.v3.oas.annotations.media.Schema
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.NotNull
 import java.time.LocalDateTime
 
 /**
@@ -27,4 +29,12 @@ abstract class BaseDto {
     @JsonIgnore
     @get:Schema(title = "创建者ID", hidden = true)
     var createdBy: Int? = null
+}
+
+abstract class BaseUpdateDto : BaseDto() {
+
+    @get:NotNull(message = "必须指定数据ID")
+    @get:Min(value = 1, message = "数据ID必须为正整数")
+    @get:Schema(title = "数据ID")
+    var id: Int = -99
 }

@@ -16,8 +16,9 @@ data class PageDto(
     val size: Int = 10,
 ) {
     fun toPageRequest(): PageRequest {
-        // 处理首页
-        val p = if (page <= 1) 0 else page
+        // 前端页码比后台多1
+        val p1 = page - 1
+        val p = if (p1 < 0) 0 else p1
         return PageRequest.of(p, size)
     }
 }

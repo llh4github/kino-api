@@ -2,10 +2,12 @@ package com.jihulab.llh4gitlab.kinoapi.api.inner
 
 import com.jihulab.llh4gitlab.kinoapi.api.BaseApi
 import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
+import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
 import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
 import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlAddDto
 import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlQueryDto
+import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlUpdateDto
 import com.jihulab.llh4gitlab.kinoapi.model.inner.InsideUrl
 import com.jihulab.llh4gitlab.kinoapi.service.auth.PermissionService
 import com.jihulab.llh4gitlab.kinoapi.service.inner.InsideUrlService
@@ -28,7 +30,7 @@ class InsideUrlApi(
     private val permissionService: PermissionService,
 ) : BaseApi() {
     @Operation(summary = "添加数据")
-    @PostMapping("add")
+    @PostMapping
     fun addByDto(
         @RequestBody @Valid dto: InsideUrlAddDto
     ): JsonWrapper<Boolean> {
@@ -39,6 +41,26 @@ class InsideUrlApi(
         fillCreateInfo(dto)
         val saved = insideUrlService.addByDto(dto)
         return ok(saved)
+    }
+
+    @Operation(summary = "更新数据")
+    @PutMapping
+    fun updateByDto(
+        @RequestBody @Valid dto: InsideUrlUpdateDto
+    ): JsonWrapper<Boolean> {
+        dto.permissionIds = permissionService.idsInDb(dto.permissionIds)
+        fillUpdateInfo(dto)
+        val saved = insideUrlService.updateByDto(dto)
+        return ok(saved)
+    }
+
+    @DeleteMapping
+    @Operation(summary = "按ID删除数据")
+    fun deleteByIds(
+        @RequestBody @Valid dto: IdDto
+    ): JsonWrapper<Boolean> {
+        insideUrlService.deleteById(dto)
+        return ok(true)
     }
 
     @GetMapping("page")

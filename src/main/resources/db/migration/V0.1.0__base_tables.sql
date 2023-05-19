@@ -7,6 +7,7 @@ CREATE TABLE "public"."auth_user"
     "updated_time" TIMESTAMP(6)                                NOT NULL DEFAULT now(),
     "updated_by"   INT4,
     "created_by"   INT4,
+    "status" int2 NOT NULL DEFAULT 1,
     CONSTRAINT "auth_user_pkey" PRIMARY KEY ("id")
 );
 ALTER TABLE "public"."auth_user"
@@ -25,7 +26,7 @@ COMMENT
     ON COLUMN "public"."auth_user"."created_by" IS '创建者';
 COMMENT
     ON TABLE "public"."auth_user" IS '用户表';
-
+COMMENT ON COLUMN "public"."auth_user"."status" IS '用户状态';
 
 CREATE TABLE "public"."auth_role"
 (

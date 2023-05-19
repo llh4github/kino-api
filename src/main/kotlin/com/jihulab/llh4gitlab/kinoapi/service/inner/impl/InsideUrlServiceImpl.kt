@@ -1,9 +1,11 @@
 package com.jihulab.llh4gitlab.kinoapi.service.inner.impl
 
+import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
 import com.jihulab.llh4gitlab.kinoapi.dto.convert.DtoConvert
 import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlAddDto
 import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlQueryDto
+import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlUpdateDto
 import com.jihulab.llh4gitlab.kinoapi.model.inner.*
 import com.jihulab.llh4gitlab.kinoapi.repository.inner.InsideUrlRepository
 import com.jihulab.llh4gitlab.kinoapi.service.inner.InsideUrlService
@@ -22,6 +24,18 @@ class InsideUrlServiceImpl(
     override fun addByDto(dto: InsideUrlAddDto): Boolean {
         val input = DtoConvert.insideUrl.toDbInput(dto)
         insideUrlRepository.save(input)
+        return true
+    }
+
+    @Transactional
+    override fun deleteById(list: IdDto) {
+        insideUrlRepository.deleteByIds(list.ids)
+    }
+
+    @Transactional
+    override fun updateByDto(dto: InsideUrlUpdateDto): Boolean {
+        val input = DtoConvert.insideUrl.toDbInput(dto)
+        insideUrlRepository.update(input)
         return true
     }
 

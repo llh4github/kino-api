@@ -1,8 +1,10 @@
 package com.jihulab.llh4gitlab.kinoapi.service.inner
 
+import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
 import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlAddDto
 import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlQueryDto
+import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlUpdateDto
 import com.jihulab.llh4gitlab.kinoapi.model.inner.InsideUrl
 import org.springframework.data.domain.Page
 
@@ -13,7 +15,9 @@ import org.springframework.data.domain.Page
  */
 interface InsideUrlService {
     fun addByDto(dto: InsideUrlAddDto): Boolean
+    fun updateByDto(dto: InsideUrlUpdateDto): Boolean
 
+    fun deleteById(list: IdDto)
     fun urlExist(url: String): Boolean
     fun pageQuery(page: PageDto, query: InsideUrlQueryDto): Page<InsideUrl>
 
