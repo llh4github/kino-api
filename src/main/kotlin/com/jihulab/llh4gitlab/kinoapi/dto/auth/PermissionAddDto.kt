@@ -19,3 +19,8 @@ data class PermissionAddDto(
     @get:NotBlank
     val name: String,
 ) : BaseDto()
+
+/**
+ * 权限信息查询参数
+ */
+typealias PermissionQueryDto = RoleQueryDto

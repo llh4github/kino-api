@@ -3,6 +3,7 @@ package com.jihulab.llh4gitlab.kinoapi.model.auth
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.jihulab.llh4gitlab.kinoapi.model.BaseModel
 import com.jihulab.llh4gitlab.kinoapi.model.BaseModelInput
+import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.*
 import org.mapstruct.BeanMapping
@@ -25,6 +26,9 @@ interface User : BaseModel {
     @get:JsonIgnore
     val password: String
 
+    @get:Schema(title = "用户状态")
+    val status: Int
+
     @ManyToMany
     @JoinTable(
         name = "link_user_role",
@@ -40,6 +44,7 @@ interface User : BaseModel {
 data class UserInput(
     var username: String? = null,
     var password: String? = null,
+    val status: Int? = null,
     val roles: List<RoleInput> = mutableListOf(),
     val roleIds: List<Int> = mutableListOf(),
 ) : BaseModelInput(), Input<User> {

@@ -1,8 +1,10 @@
 package com.jihulab.llh4gitlab.kinoapi.service.auth
 
+import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
 import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleAddDto
 import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleQueryDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleUpdateDto
 import com.jihulab.llh4gitlab.kinoapi.model.auth.Role
 import org.springframework.data.domain.Page
 
@@ -12,8 +14,17 @@ import org.springframework.data.domain.Page
  * @author llh
  */
 interface RoleService {
-    fun all(): List<Role>
+    fun allSimple(): List<Role>
     fun pageQuery(page: PageDto, query: RoleQueryDto?): Page<Role>
+
+    /**
+     * 根据ID查看详情
+     */
+    fun detail(id: Int): Role?
+
+    fun deleteByIds(ids: IdDto)
+
+    fun existCode(code: String, notId: Int?): Boolean
 
     /**
      * 将输入的数据ID列表转换为数据库已有的ID列表(已去重)。
@@ -36,4 +47,5 @@ interface RoleService {
      * 根据[userId]查出对应角色的ID
      */
     fun ids(userId: Int): List<Int>
+    fun updateByDto(dto: RoleUpdateDto): Boolean
 }

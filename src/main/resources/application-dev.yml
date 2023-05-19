@@ -9,9 +9,11 @@ spring:
 
 jimmer:
   #  dialect: postgre
+  show-sql: true
   language: kotlin
 server:
   port: 8180
+
 
 anonymous:
   urls: /login,/v3/api-docs
@@ -30,4 +32,7 @@ sa-token:
   # token风格
   token-style: uuid
   # 是否输出操作日志
-  is-log: false
+  is-log: true
+logging:
+  level:
+    com.jihulab.llh4gitlab.kinoapi: debug

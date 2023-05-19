@@ -2,14 +2,17 @@ package com.jihulab.llh4gitlab.kinoapi.api.auth
 
 import com.jihulab.llh4gitlab.kinoapi.api.BaseApi
 import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
+import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
 import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
 import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
 import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleAddDto
 import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleQueryDto
+import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleUpdateDto
 import com.jihulab.llh4gitlab.kinoapi.model.auth.Role
 import com.jihulab.llh4gitlab.kinoapi.service.auth.PermissionService
 import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
 import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.data.domain.Page
 import org.springframework.web.bind.annotation.*
@@ -35,7 +38,44 @@ class RoleApi(
         return ok(pageObj)
     }
 
-    @PostMapping("add")
+    @GetMapping("all")
+    @Operation(summary = "所有角色信息")
+    fun all(): JsonWrapper<List<Role>> {
+        val list = service.allSimple()
+        return ok(list)
+    }
+
+    @Operation(summary = "带权限信息的详细数据")
+    @GetMapping("{id}/detail")
+    fun detailWithPermissionId(
+        @PathVariable id: Int
+    ): JsonWrapper<Role> {
+        val rs = service.detail(id)
+        return ok(rs)
+    }
+
+    @GetMapping("exist")
+    @Operation(
+        summary = "检查code是否存在",
+        description = "返回true表示已存在",
+        parameters = [
+            Parameter(name = "code", description = "待检测的code值"),
+            Parameter(name = "notId", description = "排除数据的ID，防止对已存在的数据进行验证", required = false),
+        ]
+    )
+    fun exist(code: String, notId: Int?): JsonWrapper<Boolean> {
+        val exist = service.existCode(code, notId)
+        return ok(exist)
+    }
+
+    @DeleteMapping
+    @Operation(summary = "删除角色数据")
+    fun deleteByIds(@RequestBody @Valid ids: IdDto): JsonWrapper<Boolean> {
+        service.deleteByIds(ids)
+        return ok(true)
+    }
+
+    @PostMapping
     @Operation(summary = "添加角色数据")
     fun addByVo(@RequestBody @Valid dto: RoleAddDto): JsonWrapper<Boolean> {
         if (service.hasCode(dto.code)) {
@@ -49,5 +89,21 @@ class RoleApi(
         }
         val saved = service.addByDto(dto)
         return ok(saved)
+    }
+
+    @PutMapping
+    @Operation(summary = "更新角色数据")
+    fun updateByDto(
+        @RequestBody @Valid dto: RoleUpdateDto
+    ): JsonWrapper<Boolean> {
+        fillUpdateInfo(dto)
+        dto.permissionIds?.let {
+            if (it.isNotEmpty()) {
+                dto.permissionIds = permissionService.idsInDb(it)
+            }
+        }
+
+        val updated: Boolean = service.updateByDto(dto)
+        return ok(updated)
     }
 }

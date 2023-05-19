@@ -8,6 +8,7 @@ import com.jihulab.llh4gitlab.kinoapi.service.auth.UserService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
+import org.apache.logging.log4j.kotlin.logger
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -35,6 +36,12 @@ class LoginApi(
     @Operation(summary = "登出接口")
     @PostMapping("logout")
     fun logout(): JsonWrapper<Boolean> {
+        if (logger().delegate.isDebugEnabled
+            && StpUtil.isLogin()
+        ) {
+            val userId = StpUtil.getLoginIdAsInt()
+            logger().debug("$userId 退出登录")
+        }
         StpUtil.logout()
         return ok(true)
     }

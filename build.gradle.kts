@@ -21,6 +21,7 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven { setUrl("https://maven.aliyun.com/repository/public") }
 }
 
 dependencies {
@@ -28,6 +29,7 @@ dependencies {
     val jimmerVersion = "0.7.19"
     val saTokenVersion = "1.34.0"
     val springdocVersion = "2.0.2"
+    val mapstrctVersion = "1.5.5.Final"
 
     testImplementation("com.apifan.common:common-random:1.0.19")
     //region 安全框架
@@ -40,8 +42,8 @@ dependencies {
     //region jimmer框架
     implementation("org.babyfish.jimmer:jimmer-spring-boot-starter:${jimmerVersion}")
     ksp("org.babyfish.jimmer:jimmer-ksp:${jimmerVersion}")
-    implementation("org.mapstruct:mapstruct:1.5.3.Final")
-    kapt("org.mapstruct:mapstruct-processor:1.5.3.Final")
+    implementation("org.mapstruct:mapstruct:${mapstrctVersion}")
+    kapt("org.mapstruct:mapstruct-processor:${mapstrctVersion}")
     kapt("org.babyfish.jimmer:jimmer-mapstruct-apt:${jimmerVersion}")
     //endregion
     implementation("org.apache.logging.log4j:log4j-api-kotlin:1.2.0")
