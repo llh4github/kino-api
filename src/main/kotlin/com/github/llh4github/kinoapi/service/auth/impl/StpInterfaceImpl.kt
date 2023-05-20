@@ -1,8 +1,8 @@
 package com.github.llh4github.kinoapi.service.auth.impl
 
 import cn.dev33.satoken.stp.StpInterface
-import com.jihulab.llh4gitlab.kinoapi.service.auth.PermissionService
-import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
+import com.github.llh4github.kinoapi.service.auth.PermissionService
+import com.github.llh4github.kinoapi.service.auth.RoleService
 import org.springframework.stereotype.Service
 
 /**

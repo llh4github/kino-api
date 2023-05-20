@@ -1,11 +1,11 @@
 package com.github.llh4github.kinoapi.service.inner
 
-import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
-import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlQueryDto
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.model.inner.InsideUrl
+import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.PageDto
+import com.github.llh4github.kinoapi.dto.inner.InsideUrlAddDto
+import com.github.llh4github.kinoapi.dto.inner.InsideUrlQueryDto
+import com.github.llh4github.kinoapi.dto.inner.InsideUrlUpdateDto
+import com.github.llh4github.kinoapi.model.inner.InsideUrl
 import org.springframework.data.domain.Page
 
 /**

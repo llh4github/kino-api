@@ -1,8 +1,8 @@
 package com.github.llh4github.kinoapi.service.auth
 
-import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.*
-import com.jihulab.llh4gitlab.kinoapi.model.auth.User
+import com.github.llh4github.kinoapi.dto.PageDto
+import com.github.llh4github.kinoapi.dto.auth.*
+import com.github.llh4github.kinoapi.model.auth.User
 import org.springframework.data.domain.Page
 
 /**

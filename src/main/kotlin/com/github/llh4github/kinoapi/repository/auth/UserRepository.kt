@@ -1,7 +1,7 @@
 package com.github.llh4github.kinoapi.repository.auth
 
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.UserPwdUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.model.auth.*
+import com.github.llh4github.kinoapi.dto.auth.UserPwdUpdateDto
+import com.github.llh4github.kinoapi.model.auth.*
 import org.babyfish.jimmer.spring.repository.KRepository
 import org.babyfish.jimmer.sql.kt.ast.expression.eq
 import org.babyfish.jimmer.sql.kt.ast.expression.valueIn

@@ -1,9 +1,9 @@
 package com.github.llh4github.kinoapi.model.inner
 
-import com.jihulab.llh4gitlab.kinoapi.contanst.HttpMethodEnum
-import com.jihulab.llh4gitlab.kinoapi.model.BaseModel
-import com.jihulab.llh4gitlab.kinoapi.model.BaseModelInput
-import com.jihulab.llh4gitlab.kinoapi.model.auth.Permission
+import com.github.llh4github.kinoapi.contanst.HttpMethodEnum
+import com.github.llh4github.kinoapi.model.BaseModel
+import com.github.llh4github.kinoapi.model.BaseModelInput
+import com.github.llh4github.kinoapi.model.auth.Permission
 import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.*

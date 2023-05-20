@@ -1,10 +1,10 @@
 package com.github.llh4github.kinoapi.api
 
 import cn.dev33.satoken.stp.StpUtil
-import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.LoginDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.LoginTokenDto
-import com.jihulab.llh4gitlab.kinoapi.service.auth.UserService
+import com.github.llh4github.kinoapi.dto.JsonWrapper
+import com.github.llh4github.kinoapi.dto.auth.LoginDto
+import com.github.llh4github.kinoapi.dto.auth.LoginTokenDto
+import com.github.llh4github.kinoapi.service.auth.UserService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid

@@ -1,9 +1,9 @@
 package com.github.llh4github.kinoapi.api
 
 import cn.dev33.satoken.stp.StpUtil
-import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
-import com.jihulab.llh4gitlab.kinoapi.dto.BaseDto
-import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
+import com.github.llh4github.kinoapi.contanst.ErrorCode
+import com.github.llh4github.kinoapi.dto.BaseDto
+import com.github.llh4github.kinoapi.dto.JsonWrapper
 import java.time.LocalDateTime
 
 /**

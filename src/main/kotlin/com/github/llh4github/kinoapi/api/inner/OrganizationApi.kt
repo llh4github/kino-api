@@ -1,10 +1,10 @@
 package com.github.llh4github.kinoapi.api.inner
 
-import com.jihulab.llh4gitlab.kinoapi.api.BaseApi
-import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.OrganizationAddDto
-import com.jihulab.llh4gitlab.kinoapi.model.inner.Organization
-import com.jihulab.llh4gitlab.kinoapi.service.inner.OrganizationService
+import com.github.llh4github.kinoapi.api.BaseApi
+import com.github.llh4github.kinoapi.dto.JsonWrapper
+import com.github.llh4github.kinoapi.dto.inner.OrganizationAddDto
+import com.github.llh4github.kinoapi.model.inner.Organization
+import com.github.llh4github.kinoapi.service.inner.OrganizationService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid

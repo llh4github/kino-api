@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.repository.auth
 
-import com.jihulab.llh4gitlab.kinoapi.model.auth.Permission
+import com.github.llh4github.kinoapi.model.auth.Permission
 import org.babyfish.jimmer.spring.repository.KRepository
 
 /**

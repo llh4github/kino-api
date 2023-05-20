@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.exception
 
-import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
+import com.github.llh4github.kinoapi.contanst.ErrorCode
 
 /**
  *

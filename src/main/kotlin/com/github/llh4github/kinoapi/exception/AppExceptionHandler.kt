@@ -2,8 +2,8 @@ package com.github.llh4github.kinoapi.exception
 
 import cn.dev33.satoken.exception.NotLoginException
 import cn.dev33.satoken.exception.NotPermissionException
-import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
-import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
+import com.github.llh4github.kinoapi.contanst.ErrorCode
+import com.github.llh4github.kinoapi.dto.JsonWrapper
 import org.apache.logging.log4j.kotlin.Logging
 import org.springframework.validation.FieldError
 import org.springframework.web.bind.MethodArgumentNotValidException

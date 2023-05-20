@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.dto.inner
 
-import com.jihulab.llh4gitlab.kinoapi.contanst.HttpMethodEnum
+import com.github.llh4github.kinoapi.contanst.HttpMethodEnum
 import io.swagger.v3.oas.annotations.media.Schema
 
 /**

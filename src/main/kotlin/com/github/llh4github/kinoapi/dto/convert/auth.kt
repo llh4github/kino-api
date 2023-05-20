@@ -1,9 +1,9 @@
 package com.github.llh4github.kinoapi.dto.convert
 
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.*
-import com.jihulab.llh4gitlab.kinoapi.model.auth.PermissionInput
-import com.jihulab.llh4gitlab.kinoapi.model.auth.RoleInput
-import com.jihulab.llh4gitlab.kinoapi.model.auth.UserInput
+import com.github.llh4github.kinoapi.dto.auth.*
+import com.github.llh4github.kinoapi.model.auth.PermissionInput
+import com.github.llh4github.kinoapi.model.auth.RoleInput
+import com.github.llh4github.kinoapi.model.auth.UserInput
 import org.mapstruct.InheritInverseConfiguration
 import org.mapstruct.Mapper
 import org.mapstruct.Mapping

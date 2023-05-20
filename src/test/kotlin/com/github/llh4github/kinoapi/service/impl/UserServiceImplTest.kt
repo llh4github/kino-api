@@ -1,7 +1,7 @@
 package com.github.llh4github.kinoapi.service.impl
 
-import com.jihulab.llh4gitlab.kinoapi.service.auth.impl.UserServiceImpl
-import com.jihulab.llh4gitlab.kinoapi.util.checkPwd
+import com.github.llh4github.kinoapi.service.auth.impl.UserServiceImpl
+import com.github.llh4github.kinoapi.util.checkPwd
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

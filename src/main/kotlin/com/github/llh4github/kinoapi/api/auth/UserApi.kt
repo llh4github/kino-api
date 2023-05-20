@@ -1,15 +1,15 @@
 package com.github.llh4github.kinoapi.api.auth
 
 import cn.dev33.satoken.stp.StpUtil
-import com.jihulab.llh4gitlab.kinoapi.api.BaseApi
-import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
-import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
-import com.jihulab.llh4gitlab.kinoapi.dto.JsonWrapper
-import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.*
-import com.jihulab.llh4gitlab.kinoapi.model.auth.User
-import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
-import com.jihulab.llh4gitlab.kinoapi.service.auth.UserService
+import com.github.llh4github.kinoapi.api.BaseApi
+import com.github.llh4github.kinoapi.contanst.ErrorCode
+import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.JsonWrapper
+import com.github.llh4github.kinoapi.dto.PageDto
+import com.github.llh4github.kinoapi.dto.auth.*
+import com.github.llh4github.kinoapi.model.auth.User
+import com.github.llh4github.kinoapi.service.auth.RoleService
+import com.github.llh4github.kinoapi.service.auth.UserService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid

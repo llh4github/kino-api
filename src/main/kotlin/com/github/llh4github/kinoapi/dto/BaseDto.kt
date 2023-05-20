@@ -2,7 +2,7 @@ package com.github.llh4github.kinoapi.dto
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonIgnore
-import com.jihulab.llh4gitlab.kinoapi.contanst.DateTimeConst
+import com.github.llh4github.kinoapi.contanst.DateTimeConst
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull

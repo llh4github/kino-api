@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.dto.auth
 
-import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdDto
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 

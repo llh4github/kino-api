@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.repository.inner
 
-import com.jihulab.llh4gitlab.kinoapi.model.inner.InsideUrl
+import com.github.llh4github.kinoapi.model.inner.InsideUrl
 import org.babyfish.jimmer.spring.repository.KRepository
 
 /**

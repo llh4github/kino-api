@@ -1,10 +1,10 @@
 package com.github.llh4github.kinoapi.dto.convert
 
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.InsideUrlUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.OrganizationAddDto
-import com.jihulab.llh4gitlab.kinoapi.model.inner.InsideUrlInput
-import com.jihulab.llh4gitlab.kinoapi.model.inner.OrganizationInput
+import com.github.llh4github.kinoapi.dto.inner.InsideUrlAddDto
+import com.github.llh4github.kinoapi.dto.inner.InsideUrlUpdateDto
+import com.github.llh4github.kinoapi.dto.inner.OrganizationAddDto
+import com.github.llh4github.kinoapi.model.inner.InsideUrlInput
+import com.github.llh4github.kinoapi.model.inner.OrganizationInput
 import org.mapstruct.Mapper
 
 

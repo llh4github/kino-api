@@ -1,14 +1,14 @@
 package com.github.llh4github.kinoapi.service.auth.impl
 
-import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
-import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleQueryDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.dto.convert.DtoConvert
-import com.jihulab.llh4gitlab.kinoapi.model.auth.*
-import com.jihulab.llh4gitlab.kinoapi.repository.auth.RoleRepository
-import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
+import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.PageDto
+import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
+import com.github.llh4github.kinoapi.dto.auth.RoleQueryDto
+import com.github.llh4github.kinoapi.dto.auth.RoleUpdateDto
+import com.github.llh4github.kinoapi.dto.convert.DtoConvert
+import com.github.llh4github.kinoapi.model.auth.*
+import com.github.llh4github.kinoapi.repository.auth.RoleRepository
+import com.github.llh4github.kinoapi.service.auth.RoleService
 import org.apache.logging.log4j.kotlin.Logging
 import org.babyfish.jimmer.sql.kt.ast.expression.*
 import org.springframework.data.domain.Page

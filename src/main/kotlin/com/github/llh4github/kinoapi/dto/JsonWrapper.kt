@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.dto
 
-import com.jihulab.llh4gitlab.kinoapi.contanst.ErrorCode
+import com.github.llh4github.kinoapi.contanst.ErrorCode
 import io.swagger.v3.oas.annotations.media.Schema
 
 /**

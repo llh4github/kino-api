@@ -1,10 +1,10 @@
 package com.github.llh4github.kinoapi.service.inner.impl
 
-import com.jihulab.llh4gitlab.kinoapi.dto.convert.DtoConvert
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.OrganizationAddDto
-import com.jihulab.llh4gitlab.kinoapi.model.inner.Organization
-import com.jihulab.llh4gitlab.kinoapi.repository.inner.OrganizationRepository
-import com.jihulab.llh4gitlab.kinoapi.service.inner.OrganizationService
+import com.github.llh4github.kinoapi.dto.convert.DtoConvert
+import com.github.llh4github.kinoapi.dto.inner.OrganizationAddDto
+import com.github.llh4github.kinoapi.model.inner.Organization
+import com.github.llh4github.kinoapi.repository.inner.OrganizationRepository
+import com.github.llh4github.kinoapi.service.inner.OrganizationService
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

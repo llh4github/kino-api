@@ -1,7 +1,7 @@
 package com.github.llh4github.kinoapi.repository.inner
 
-import com.jihulab.llh4gitlab.kinoapi.model.inner.Organization
-import com.jihulab.llh4gitlab.kinoapi.model.inner.by
+import com.github.llh4github.kinoapi.model.inner.Organization
+import com.github.llh4github.kinoapi.model.inner.by
 import org.babyfish.jimmer.spring.repository.KRepository
 import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
 

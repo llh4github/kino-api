@@ -1,7 +1,7 @@
 package com.github.llh4github.kinoapi.service.inner
 
-import com.jihulab.llh4gitlab.kinoapi.dto.inner.OrganizationAddDto
-import com.jihulab.llh4gitlab.kinoapi.model.inner.Organization
+import com.github.llh4github.kinoapi.dto.inner.OrganizationAddDto
+import com.github.llh4github.kinoapi.model.inner.Organization
 
 /**
  *

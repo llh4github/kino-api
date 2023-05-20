@@ -1,11 +1,11 @@
 package com.github.llh4github.kinoapi.service.auth
 
-import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
-import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.PermissionAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.PermissionQueryDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.PermissionUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.model.auth.Permission
+import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.PageDto
+import com.github.llh4github.kinoapi.dto.auth.PermissionAddDto
+import com.github.llh4github.kinoapi.dto.auth.PermissionQueryDto
+import com.github.llh4github.kinoapi.dto.auth.PermissionUpdateDto
+import com.github.llh4github.kinoapi.model.auth.Permission
 import org.springframework.data.domain.Page
 
 /**

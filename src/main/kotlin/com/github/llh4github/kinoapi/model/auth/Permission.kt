@@ -1,8 +1,8 @@
 package com.github.llh4github.kinoapi.model.auth
 
-import com.jihulab.llh4gitlab.kinoapi.model.BaseModel
-import com.jihulab.llh4gitlab.kinoapi.model.BaseModelInput
-import com.jihulab.llh4gitlab.kinoapi.model.inner.InsideUrl
+import com.github.llh4github.kinoapi.model.BaseModel
+import com.github.llh4github.kinoapi.model.BaseModelInput
+import com.github.llh4github.kinoapi.model.inner.InsideUrl
 import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.Entity

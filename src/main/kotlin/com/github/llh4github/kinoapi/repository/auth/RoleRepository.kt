@@ -1,9 +1,9 @@
 package com.github.llh4github.kinoapi.repository.auth
 
-import com.jihulab.llh4gitlab.kinoapi.model.auth.Role
-import com.jihulab.llh4gitlab.kinoapi.model.auth.code
-import com.jihulab.llh4gitlab.kinoapi.model.auth.id
-import com.jihulab.llh4gitlab.kinoapi.model.auth.users
+import com.github.llh4github.kinoapi.model.auth.Role
+import com.github.llh4github.kinoapi.model.auth.code
+import com.github.llh4github.kinoapi.model.auth.id
+import com.github.llh4github.kinoapi.model.auth.users
 import org.babyfish.jimmer.spring.repository.KRepository
 import org.babyfish.jimmer.sql.kt.ast.expression.eq
 

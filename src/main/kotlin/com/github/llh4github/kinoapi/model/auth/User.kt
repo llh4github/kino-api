@@ -1,8 +1,8 @@
 package com.github.llh4github.kinoapi.model.auth
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import com.jihulab.llh4gitlab.kinoapi.model.BaseModel
-import com.jihulab.llh4gitlab.kinoapi.model.BaseModelInput
+import com.github.llh4github.kinoapi.model.BaseModel
+import com.github.llh4github.kinoapi.model.BaseModelInput
 import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.*

@@ -1,8 +1,8 @@
 package com.github.llh4github.kinoapi.dto.auth
 
 import com.fasterxml.jackson.annotation.JsonIgnore
-import com.jihulab.llh4gitlab.kinoapi.dto.BaseUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.util.hashPwd
+import com.github.llh4github.kinoapi.dto.BaseUpdateDto
+import com.github.llh4github.kinoapi.util.hashPwd
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.NotEmpty
 import org.hibernate.validator.constraints.Length

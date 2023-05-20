@@ -1,11 +1,11 @@
 package com.github.llh4github.kinoapi.service.auth
 
-import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
-import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleQueryDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.RoleUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.model.auth.Role
+import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.PageDto
+import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
+import com.github.llh4github.kinoapi.dto.auth.RoleQueryDto
+import com.github.llh4github.kinoapi.dto.auth.RoleUpdateDto
+import com.github.llh4github.kinoapi.model.auth.Role
 import org.springframework.data.domain.Page
 
 /**

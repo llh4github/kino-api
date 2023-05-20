@@ -1,14 +1,14 @@
 package com.github.llh4github.kinoapi.service.auth.impl
 
-import com.jihulab.llh4gitlab.kinoapi.dto.IdDto
-import com.jihulab.llh4gitlab.kinoapi.dto.PageDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.PermissionAddDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.PermissionQueryDto
-import com.jihulab.llh4gitlab.kinoapi.dto.auth.PermissionUpdateDto
-import com.jihulab.llh4gitlab.kinoapi.dto.convert.DtoConvert
-import com.jihulab.llh4gitlab.kinoapi.model.auth.*
-import com.jihulab.llh4gitlab.kinoapi.repository.auth.PermissionRepository
-import com.jihulab.llh4gitlab.kinoapi.service.auth.PermissionService
+import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.PageDto
+import com.github.llh4github.kinoapi.dto.auth.PermissionAddDto
+import com.github.llh4github.kinoapi.dto.auth.PermissionQueryDto
+import com.github.llh4github.kinoapi.dto.auth.PermissionUpdateDto
+import com.github.llh4github.kinoapi.dto.convert.DtoConvert
+import com.github.llh4github.kinoapi.model.auth.*
+import com.github.llh4github.kinoapi.repository.auth.PermissionRepository
+import com.github.llh4github.kinoapi.service.auth.PermissionService
 import org.babyfish.jimmer.sql.kt.ast.expression.*
 import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service

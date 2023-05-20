@@ -1,7 +1,7 @@
 package com.github.llh4github.kinoapi.dto.inner
 
-import com.jihulab.llh4gitlab.kinoapi.contanst.HttpMethodEnum
-import com.jihulab.llh4gitlab.kinoapi.dto.BaseUpdateDto
+import com.github.llh4github.kinoapi.contanst.HttpMethodEnum
+import com.github.llh4github.kinoapi.dto.BaseUpdateDto
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull

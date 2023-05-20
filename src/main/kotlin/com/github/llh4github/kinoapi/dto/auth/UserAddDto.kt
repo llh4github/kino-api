@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.dto.auth
 
-import com.jihulab.llh4gitlab.kinoapi.dto.BaseDto
+import com.github.llh4github.kinoapi.dto.BaseDto
 import io.swagger.v3.oas.annotations.media.Schema
 import javax.validation.constraints.NotEmpty
 
