@@ -9,7 +9,7 @@ plugins {
     kotlin("kapt") version "1.7.22"
 }
 
-group = "com.jihulab.llh4gitlab"
+group = "com.github.llh4github"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
