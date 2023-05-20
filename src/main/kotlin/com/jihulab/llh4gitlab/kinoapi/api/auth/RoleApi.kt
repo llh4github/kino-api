@@ -14,6 +14,7 @@ import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.tags.Tag
+import org.babyfish.jimmer.client.FetchBy
 import org.springframework.data.domain.Page
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
@@ -40,7 +41,7 @@ class RoleApi(
 
     @GetMapping("all")
     @Operation(summary = "所有角色信息")
-    fun all(): JsonWrapper<List<Role>> {
+    fun all(): JsonWrapper<List<@FetchBy("simpleFetch") Role>> {
         val list = service.allSimple()
         return ok(list)
     }

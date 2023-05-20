@@ -11,7 +11,6 @@ import com.jihulab.llh4gitlab.kinoapi.repository.auth.RoleRepository
 import com.jihulab.llh4gitlab.kinoapi.service.auth.RoleService
 import org.apache.logging.log4j.kotlin.Logging
 import org.babyfish.jimmer.sql.kt.ast.expression.*
-import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
 import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -26,14 +25,7 @@ class RoleServiceImpl(
     }
 
     override fun detail(id: Int): Role? {
-        return repository.findNullable(id,
-            newFetcher(Role::class).by {
-                allScalarFields()
-                permissions {
-                    name()
-                    code()
-                }
-            })
+        return repository.findNullable(id, RoleFetcher.simpleFetch)
     }
 
 

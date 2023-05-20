@@ -4,6 +4,7 @@ import com.jihulab.llh4gitlab.kinoapi.model.BaseModel
 import com.jihulab.llh4gitlab.kinoapi.model.BaseModelInput
 import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.*
+import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
 import org.mapstruct.BeanMapping
 import org.mapstruct.Mapper
 import org.mapstruct.ReportingPolicy
@@ -54,5 +55,15 @@ data class RoleInput(
     internal interface Converter {
         @BeanMapping(unmappedTargetPolicy = ReportingPolicy.IGNORE)
         fun toModel(input: RoleInput): Role
+    }
+}
+
+object RoleFetcher{
+    val simpleFetch = newFetcher(Role::class).by {
+        allScalarFields()
+        permissions {
+            code()
+            name()
+        }
     }
 }
