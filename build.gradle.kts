@@ -20,8 +20,10 @@ configurations {
 }
 
 repositories {
+//    maven { setUrl("https://mirrors.huaweicloud.com/repository/maven") }
+//    maven { setUrl("https://maven.aliyun.com/repository/spring") }
+    maven { setUrl("https://mirrors.cloud.tencent.com/nexus/repository/maven-public/") }
     mavenCentral()
-    maven { setUrl("https://maven.aliyun.com/repository/public") }
 }
 
 dependencies {
