@@ -35,4 +35,4 @@ sa-token:
   is-log: true
 logging:
   level:
-    com.jihulab.llh4gitlab.kinoapi: debug
+    com.github.llh4github.kinoapi: debug
