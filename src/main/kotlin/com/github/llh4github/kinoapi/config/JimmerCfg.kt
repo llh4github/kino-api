@@ -1,8 +1,6 @@
 package com.github.llh4github.kinoapi.config
 
 import com.github.llh4github.kinoapi.model.ENTITY_MANAGER
-import org.babyfish.jimmer.sql.dialect.Dialect
-import org.babyfish.jimmer.sql.dialect.PostgresDialect
 import org.babyfish.jimmer.sql.runtime.EntityManager
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -16,7 +14,4 @@ import org.springframework.context.annotation.Configuration
 class JimmerCfg {
     @Bean
     fun entityManager(): EntityManager = ENTITY_MANAGER
-
-    @Bean
-    fun dialect(): Dialect = PostgresDialect()
 }
