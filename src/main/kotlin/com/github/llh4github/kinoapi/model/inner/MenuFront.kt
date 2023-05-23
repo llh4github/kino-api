@@ -27,6 +27,7 @@ interface MenuFront : BaseModel {
     @get:Schema(title = "上级菜单ID", nullable = true)
     val parentId: Int?
 
+    @get:Schema(hidden = true)
     @ManyToOne
     val parent: MenuFront?
 
