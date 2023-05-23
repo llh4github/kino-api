@@ -80,7 +80,7 @@ class PermissionServiceImpl(
         return permissionRepository.sql.createQuery(Permission::class) {
             where(table.code eq code)
             notId?.let {
-                where(table.id ne notId)
+                where(table.id ne it)
             }
             select(table.id)
         }.count() > 0

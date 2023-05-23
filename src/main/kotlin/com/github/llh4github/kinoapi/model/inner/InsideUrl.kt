@@ -19,6 +19,7 @@ import org.mapstruct.factory.Mappers
  */
 @Entity
 @Table(name = "inner_inside_url")
+@Deprecated("改用 menu ")
 interface InsideUrl : BaseModel {
     @get:Schema(title = "请求方法")
     val method: HttpMethodEnum
@@ -45,6 +46,7 @@ interface InsideUrl : BaseModel {
     val permissionIds: List<Int>
 }
 
+@Deprecated("改用 menu ")
 data class InsideUrlInput(
     val method: HttpMethodEnum,
     val url: String,

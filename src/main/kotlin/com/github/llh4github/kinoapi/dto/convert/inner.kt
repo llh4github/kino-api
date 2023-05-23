@@ -4,6 +4,8 @@ import com.github.llh4github.kinoapi.dto.inner.InsideUrlAddDto
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlUpdateDto
 import com.github.llh4github.kinoapi.dto.inner.OrganizationAddDto
 import com.github.llh4github.kinoapi.model.inner.InsideUrlInput
+import com.github.llh4github.kinoapi.model.inner.MenuFront
+import com.github.llh4github.kinoapi.model.inner.MenuFrontInput
 import com.github.llh4github.kinoapi.model.inner.OrganizationInput
 import org.mapstruct.Mapper
 
@@ -15,6 +17,12 @@ interface InsideUrlConvert {
 }
 
 @Mapper
-interface OrganizationConvert{
+interface OrganizationConvert {
     fun toDbInput(dto: OrganizationAddDto): OrganizationInput
+}
+
+@Mapper
+interface MenuFrontConvert {
+
+    fun toModel(input: MenuFrontInput): MenuFront
 }
