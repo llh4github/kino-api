@@ -3,16 +3,13 @@ package com.github.llh4github.kinoapi.api.inner
 import com.github.llh4github.kinoapi.api.BaseApi
 import com.github.llh4github.kinoapi.dto.JsonWrapper
 import com.github.llh4github.kinoapi.dto.inner.MenuAddDto
+import com.github.llh4github.kinoapi.dto.inner.MenuUpdateDto
 import com.github.llh4github.kinoapi.model.inner.MenuFront
 import com.github.llh4github.kinoapi.service.inner.MenuService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 /**
  *
@@ -38,13 +35,24 @@ class MenuApi(
         val tree = service.tree(id)
         return ok(tree)
     }
+
     @PostMapping
     @Operation(summary = "添加菜单数据")
     fun add(
-       @RequestBody @Valid dto:MenuAddDto
+        @RequestBody @Valid dto: MenuAddDto
     ): JsonWrapper<Boolean> {
         fillCreateInfo(dto)
         val rs = service.addByDto(dto)
+        return ok(rs)
+    }
+
+    @PutMapping
+    @Operation(summary = "修改菜单数据")
+    fun update(
+        @RequestBody @Valid dto: MenuUpdateDto
+    ): JsonWrapper<Boolean> {
+        fillCreateInfo(dto)
+        val rs = service.updateByDto(dto)
         return ok(rs)
     }
 }

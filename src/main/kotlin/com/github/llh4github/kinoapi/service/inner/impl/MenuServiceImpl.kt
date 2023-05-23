@@ -2,6 +2,7 @@ package com.github.llh4github.kinoapi.service.inner.impl
 
 import com.github.llh4github.kinoapi.dto.convert.InnerConvert
 import com.github.llh4github.kinoapi.dto.inner.MenuAddDto
+import com.github.llh4github.kinoapi.dto.inner.MenuUpdateDto
 import com.github.llh4github.kinoapi.model.inner.MenuFront
 import com.github.llh4github.kinoapi.repository.inner.MenuFrontRepository
 import com.github.llh4github.kinoapi.service.inner.MenuService
@@ -16,6 +17,13 @@ class MenuServiceImpl(
     override fun addByDto(dto: MenuAddDto): Boolean {
         val model = InnerConvert.menu.toModel(dto)
         repository.save(model)
+        return true
+    }
+
+    @Transactional
+    override fun updateByDto(dto: MenuUpdateDto): Boolean {
+        val model = InnerConvert.menu.toModel(dto)
+        repository.update(model)
         return true
     }
 
