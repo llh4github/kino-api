@@ -27,8 +27,8 @@ class MenuServiceImpl(
         return true
     }
 
-    override fun treeList(parentId: Int?): List<MenuFront> {
-        return repository.findTreeList(parentId)
+    override fun treeList(parentId: Int?, name: String?, router: String?): List<MenuFront> {
+        return repository.findTreeList(parentId,name, router)
     }
 
     override fun tree(id: Int): MenuFront? {

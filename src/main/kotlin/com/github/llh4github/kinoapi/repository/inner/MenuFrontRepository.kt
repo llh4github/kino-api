@@ -1,12 +1,10 @@
 package com.github.llh4github.kinoapi.repository.inner
 
-import com.github.llh4github.kinoapi.model.inner.MenuFetcher
-import com.github.llh4github.kinoapi.model.inner.MenuFront
-import com.github.llh4github.kinoapi.model.inner.id
-import com.github.llh4github.kinoapi.model.inner.parentId
+import com.github.llh4github.kinoapi.model.inner.*
 import org.babyfish.jimmer.spring.repository.KRepository
 import org.babyfish.jimmer.sql.kt.ast.expression.eq
 import org.babyfish.jimmer.sql.kt.ast.expression.isNull
+import org.babyfish.jimmer.sql.kt.ast.expression.like
 
 /**
  *
@@ -30,12 +28,18 @@ interface MenuFrontRepository : KRepository<MenuFront, Int> {
      *
      * 查询某节点下所有的子孙节点(不含自身)
      */
-    fun findTreeList(pId: Int? = null): List<MenuFront> {
+    fun findTreeList(pId: Int? = null, name: String? = null, router: String? = null): List<MenuFront> {
         return sql.createQuery(MenuFront::class) {
             if (pId == null) {
                 where(table.parentId.isNull())
             } else {
                 where(table.parentId eq pId)
+            }
+            name?.takeIf { it.isNotEmpty() }?.apply {
+                where(table.name like this)
+            }
+            router?.takeIf { it.isNotEmpty() }?.apply {
+                where(table.router like this)
             }
             select(table.fetch(MenuFetcher.TREE_FETCH))
         }.execute()

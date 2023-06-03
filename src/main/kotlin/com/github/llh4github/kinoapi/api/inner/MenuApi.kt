@@ -24,8 +24,8 @@ class MenuApi(
 ) : BaseApi() {
     @Operation(summary = "获取树形列表数据")
     @GetMapping("treeList")
-    fun treeList(parentId: Int?): JsonWrapper<List<MenuFront>> {
-        val list = service.treeList(parentId)
+    fun treeList(parentId: Int?, name: String?, router: String?): JsonWrapper<List<MenuFront>> {
+        val list = service.treeList(parentId, name, router)
         return ok(list)
     }
 

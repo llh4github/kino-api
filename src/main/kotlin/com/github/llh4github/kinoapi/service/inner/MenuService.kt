@@ -14,7 +14,7 @@ interface MenuService {
     fun addByDto(dto: MenuAddDto): Boolean
     fun updateByDto(dto:MenuUpdateDto): Boolean
 
-    fun treeList(parentId: Int? = null): List<MenuFront>
+    fun treeList(parentId: Int? = null, name: String? = null, router: String? = null): List<MenuFront>
 
     fun tree(id: Int): MenuFront?
 }
