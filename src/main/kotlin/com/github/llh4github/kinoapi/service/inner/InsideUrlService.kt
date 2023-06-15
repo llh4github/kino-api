@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.service.inner
 
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlAddDto
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlQueryDto
@@ -17,7 +17,7 @@ interface InsideUrlService {
     fun addByDto(dto: InsideUrlAddDto): Boolean
     fun updateByDto(dto: InsideUrlUpdateDto): Boolean
 
-    fun deleteById(list: IdDto)
+    fun deleteById(list: IdsDto)
     fun urlExist(url: String): Boolean
     fun pageQuery(page: PageDto, query: InsideUrlQueryDto): Page<InsideUrl>
 

@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.service.auth
 
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
 import com.github.llh4github.kinoapi.dto.auth.RoleQueryDto
@@ -22,7 +22,7 @@ interface RoleService {
      */
     fun detail(id: Int): Role?
 
-    fun deleteByIds(ids: IdDto)
+    fun deleteByIds(ids: IdsDto)
 
     fun existCode(code: String, notId: Int?): Boolean
 

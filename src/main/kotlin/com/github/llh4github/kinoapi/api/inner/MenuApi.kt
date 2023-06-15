@@ -1,6 +1,7 @@
 package com.github.llh4github.kinoapi.api.inner
 
 import com.github.llh4github.kinoapi.api.BaseApi
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.JsonWrapper
 import com.github.llh4github.kinoapi.dto.inner.MenuAddDto
 import com.github.llh4github.kinoapi.dto.inner.MenuUpdateDto
@@ -36,6 +37,11 @@ class MenuApi(
         return ok(tree)
     }
 
+    @DeleteMapping
+    @Operation(summary = "删除某棵树")
+    fun delete(dto:IdsDto) {
+
+    }
     @PostMapping
     @Operation(summary = "添加菜单数据")
     fun add(

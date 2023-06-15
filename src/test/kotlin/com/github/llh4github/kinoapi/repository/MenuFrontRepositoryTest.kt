@@ -46,4 +46,10 @@ class MenuFrontRepositoryTest {
         repository.update(input)
 
     }
+
+    @Test
+    fun `test find son id`() {
+        val list = repository.findSonIds(3)
+        println(list)
+    }
 }

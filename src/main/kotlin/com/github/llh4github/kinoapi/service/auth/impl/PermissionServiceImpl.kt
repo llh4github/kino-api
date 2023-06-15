@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.service.auth.impl
 
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionAddDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionQueryDto
@@ -37,7 +37,7 @@ class PermissionServiceImpl(
     }
 
     @Transactional
-    override fun deleteByIds(ids: IdDto): Boolean {
+    override fun deleteByIds(ids: IdsDto): Boolean {
         permissionRepository.deleteByIds(ids.ids)
         return true
     }

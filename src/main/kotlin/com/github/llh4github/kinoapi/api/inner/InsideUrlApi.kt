@@ -2,7 +2,7 @@ package com.github.llh4github.kinoapi.api.inner
 
 import com.github.llh4github.kinoapi.api.BaseApi
 import com.github.llh4github.kinoapi.contanst.ErrorCode
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.JsonWrapper
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlAddDto
@@ -57,7 +57,7 @@ class InsideUrlApi(
     @DeleteMapping
     @Operation(summary = "按ID删除数据")
     fun deleteByIds(
-        @RequestBody @Valid dto: IdDto
+        @RequestBody @Valid dto: IdsDto
     ): JsonWrapper<Boolean> {
         insideUrlService.deleteById(dto)
         return ok(true)

@@ -24,6 +24,21 @@ interface MenuFrontRepository : KRepository<MenuFront, Int> {
     }
 
     /**
+     * 获取指定节点及其子孙节点ID
+     */
+    fun findSonIds(id: Int): List<Int> {
+        return sql.createQuery(MenuFront::class) {
+            where(table.id eq id)
+            select(table.fetch(MenuFetcher.SON_ID_FETCH))
+        }.execute()
+            .flatMap {
+                val list = it.children.map { ele -> ele.id }.toMutableList()
+                list.add(it.id)
+                list.toList()
+            }
+    }
+
+    /**
      * 根据pId查询树形列表数据
      *
      * 查询某节点下所有的子孙节点(不含自身)

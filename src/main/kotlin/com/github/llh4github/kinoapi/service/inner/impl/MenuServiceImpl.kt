@@ -6,6 +6,7 @@ import com.github.llh4github.kinoapi.dto.inner.MenuUpdateDto
 import com.github.llh4github.kinoapi.model.inner.MenuFront
 import com.github.llh4github.kinoapi.repository.inner.MenuFrontRepository
 import com.github.llh4github.kinoapi.service.inner.MenuService
+import org.babyfish.jimmer.sql.ast.mutation.DeleteMode
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -28,10 +29,17 @@ class MenuServiceImpl(
     }
 
     override fun treeList(parentId: Int?, name: String?, router: String?): List<MenuFront> {
-        return repository.findTreeList(parentId,name, router)
+        return repository.findTreeList(parentId, name, router)
     }
 
     override fun tree(id: Int): MenuFront? {
         return repository.findTreeByRootId(id)
+    }
+
+    @Transactional
+    override fun deleteSelfAndSon(id: Int): Int {
+        val list = repository.findSonIds(id)
+        if (list.isEmpty()) return 0
+        return repository.deleteByIds(list, DeleteMode.AUTO)
     }
 }

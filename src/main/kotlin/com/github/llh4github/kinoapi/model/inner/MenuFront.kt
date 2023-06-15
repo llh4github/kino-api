@@ -5,7 +5,10 @@ import com.github.llh4github.kinoapi.model.BaseModel
 import com.github.llh4github.kinoapi.model.BaseModelInput
 import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.Input
-import org.babyfish.jimmer.sql.*
+import org.babyfish.jimmer.sql.Entity
+import org.babyfish.jimmer.sql.ManyToOne
+import org.babyfish.jimmer.sql.OneToMany
+import org.babyfish.jimmer.sql.Table
 import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
 
 /**
@@ -53,5 +56,8 @@ object MenuFetcher {
         children({ recursive() }) {
             allScalarFields()
         }
+    }
+    val SON_ID_FETCH = newFetcher(MenuFront::class).by {
+        children({ recursive() }) {}
     }
 }
