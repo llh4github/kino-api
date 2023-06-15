@@ -2,7 +2,7 @@ package com.github.llh4github.kinoapi.api.auth
 
 import com.github.llh4github.kinoapi.api.BaseApi
 import com.github.llh4github.kinoapi.contanst.ErrorCode
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.JsonWrapper
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
@@ -71,7 +71,7 @@ class RoleApi(
 
     @DeleteMapping
     @Operation(summary = "删除角色数据")
-    fun deleteByIds(@RequestBody @Valid ids: IdDto): JsonWrapper<Boolean> {
+    fun deleteByIds(@RequestBody @Valid ids: IdsDto): JsonWrapper<Boolean> {
         service.deleteByIds(ids)
         return ok(true)
     }

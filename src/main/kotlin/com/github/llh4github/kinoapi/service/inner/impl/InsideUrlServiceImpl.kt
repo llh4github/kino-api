@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.service.inner.impl
 
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.convert.DtoConvert
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlAddDto
@@ -28,7 +28,7 @@ class InsideUrlServiceImpl(
     }
 
     @Transactional
-    override fun deleteById(list: IdDto) {
+    override fun deleteById(list: IdsDto) {
         insideUrlRepository.deleteByIds(list.ids)
     }
 

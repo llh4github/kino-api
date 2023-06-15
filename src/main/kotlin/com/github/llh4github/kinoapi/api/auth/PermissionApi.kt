@@ -2,7 +2,7 @@ package com.github.llh4github.kinoapi.api.auth
 
 import com.github.llh4github.kinoapi.api.BaseApi
 import com.github.llh4github.kinoapi.contanst.ErrorCode
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.JsonWrapper
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionAddDto
@@ -61,7 +61,7 @@ class PermissionApi(
     @Operation(summary = "按ID删除数据")
     @DeleteMapping
     fun deleteById(
-        @RequestBody @Valid dto: IdDto
+        @RequestBody @Valid dto: IdsDto
     ): JsonWrapper<Boolean> {
         val rs = permissionService.deleteByIds(dto)
         return ok(rs)

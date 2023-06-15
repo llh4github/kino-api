@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.service.auth.impl
 
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
 import com.github.llh4github.kinoapi.dto.auth.RoleQueryDto
@@ -40,7 +40,7 @@ class RoleServiceImpl(
     }
 
     @Transactional
-    override fun deleteByIds(ids: IdDto) {
+    override fun deleteByIds(ids: IdsDto) {
         repository.deleteByIds(ids.ids)
     }
 

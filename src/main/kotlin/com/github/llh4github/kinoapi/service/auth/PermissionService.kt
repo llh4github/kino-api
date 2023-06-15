@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.service.auth
 
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionAddDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionQueryDto
@@ -23,7 +23,7 @@ interface PermissionService {
 
     fun codeExist(code: String, notId: Int?): Boolean
 
-    fun deleteByIds(ids: IdDto): Boolean
+    fun deleteByIds(ids: IdsDto): Boolean
     fun idsInDb(idInput: List<Int>): List<Int>
 
     /**

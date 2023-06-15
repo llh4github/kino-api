@@ -3,7 +3,7 @@ package com.github.llh4github.kinoapi.api.auth
 import cn.dev33.satoken.stp.StpUtil
 import com.github.llh4github.kinoapi.api.BaseApi
 import com.github.llh4github.kinoapi.contanst.ErrorCode
-import com.github.llh4github.kinoapi.dto.IdDto
+import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.JsonWrapper
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.*
@@ -79,7 +79,7 @@ class UserApi(
     @Operation(summary = "更新用户状态为禁用")
     @PutMapping("status/disable")
     fun updateStatusDisable(
-        @RequestBody @Valid ids: IdDto
+        @RequestBody @Valid ids: IdsDto
     ): JsonWrapper<Int> {
         val dto = UserStatusUpdateDto(0)
         dto.ids = ids.ids
