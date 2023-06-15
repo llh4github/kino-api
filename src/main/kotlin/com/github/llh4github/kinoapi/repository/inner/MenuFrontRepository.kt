@@ -35,7 +35,7 @@ interface MenuFrontRepository : KRepository<MenuFront, Int> {
                 val list = it.children.map { ele -> ele.id }.toMutableList()
                 list.add(it.id)
                 list.toList()
-            }
+            }.reversed()
     }
 
     /**

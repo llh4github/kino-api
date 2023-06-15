@@ -4,9 +4,11 @@ import com.github.llh4github.kinoapi.dto.convert.InnerConvert
 import com.github.llh4github.kinoapi.dto.inner.MenuAddDto
 import com.github.llh4github.kinoapi.dto.inner.MenuUpdateDto
 import com.github.llh4github.kinoapi.model.inner.MenuFront
+import com.github.llh4github.kinoapi.model.inner.id
 import com.github.llh4github.kinoapi.repository.inner.MenuFrontRepository
 import com.github.llh4github.kinoapi.service.inner.MenuService
 import org.babyfish.jimmer.sql.ast.mutation.DeleteMode
+import org.babyfish.jimmer.sql.kt.ast.expression.valueIn
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
