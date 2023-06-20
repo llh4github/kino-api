@@ -11,6 +11,7 @@ import com.github.llh4github.kinoapi.repository.auth.RoleRepository
 import com.github.llh4github.kinoapi.service.auth.RoleService
 import org.apache.logging.log4j.kotlin.Logging
 import org.babyfish.jimmer.sql.kt.ast.expression.*
+import org.springframework.beans.BeanUtils
 import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -63,6 +64,7 @@ class RoleServiceImpl(
     @Transactional
     override fun addByDto(dto: RoleAddDto): Boolean {
         val model = DtoConvert.role.toDbInput(dto)
+        BeanUtils.copyProperties(dto, RoleInput())
         repository.insert(model)
         return true
     }
