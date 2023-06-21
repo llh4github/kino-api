@@ -38,6 +38,7 @@ interface Role : BaseModel {
     val permissionIds: List<Int>
 }
 
+@Deprecated("使用插件生成的类")
 data class RoleInput(
     var code: String? = null,
     var name: String? = null,

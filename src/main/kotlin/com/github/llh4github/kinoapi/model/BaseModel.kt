@@ -33,6 +33,7 @@ interface BaseModel {
     val createdBy: Int?
 }
 
+@Deprecated("改用插件生成的父级接口")
 abstract class BaseModelInput {
     @get:Schema(title = "数据ID", example = "1")
     var id: Int? = null

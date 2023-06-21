@@ -33,6 +33,12 @@ dependencies {
     val springdocVersion = "2.0.2"
     val mapstrctVersion = "1.5.5.Final"
 
+    // 自己开发的ksp插件，测试完成后放到maven仓库里
+//    ksp(fileTree("libs", "core-0.0.1.jar"))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to "core-0.0.1.jar")))
+    ksp(fileTree(mapOf("dir" to "libs", "include" to "ksp-0.0.1.jar")))
+    ksp(fileTree(mapOf("dir" to "libs", "include" to "core-0.0.1.jar")))
+    ksp("com.facebook:ktfmt:0.44")
     testImplementation("com.apifan.common:common-random:1.0.19")
     //region 安全框架
     implementation("cn.dev33:sa-token-spring-boot3-starter:${saTokenVersion}")
