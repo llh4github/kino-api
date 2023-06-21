@@ -5,6 +5,7 @@ import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
 import com.github.llh4github.kinoapi.dto.auth.RoleQueryDto
 import com.github.llh4github.kinoapi.dto.auth.RoleUpdateDto
+import com.github.llh4github.kinoapi.dto.auth.toJimmerEntity
 import com.github.llh4github.kinoapi.dto.convert.DtoConvert
 import com.github.llh4github.kinoapi.model.auth.*
 import com.github.llh4github.kinoapi.repository.auth.RoleRepository
@@ -63,9 +64,7 @@ class RoleServiceImpl(
 
     @Transactional
     override fun addByDto(dto: RoleAddDto): Boolean {
-        val model = DtoConvert.role.toDbInput(dto)
-        BeanUtils.copyProperties(dto, RoleInput())
-        repository.insert(model)
+        repository.insert(dto.toJimmerEntity())
         return true
     }
 

@@ -1,6 +1,8 @@
 package com.github.llh4github.kinoapi.dto.auth
 
+import com.github.llh4github.jimmerhelper.ToJimmerEntity
 import com.github.llh4github.kinoapi.dto.BaseDto
+import com.github.llh4github.kinoapi.model.auth.User
 import io.swagger.v3.oas.annotations.media.Schema
 import javax.validation.constraints.NotEmpty
 
@@ -9,6 +11,7 @@ import javax.validation.constraints.NotEmpty
  * Created At 2023/3/29 18:38
  * @author llh
  */
+@ToJimmerEntity(User::class)
 @Schema(title = "用户添加类")
 data class UserAddDto(
     @NotEmpty
