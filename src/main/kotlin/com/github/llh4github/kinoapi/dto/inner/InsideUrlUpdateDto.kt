@@ -1,7 +1,9 @@
 package com.github.llh4github.kinoapi.dto.inner
 
+import com.github.llh4github.jimmerhelper.ToJimmerEntity
 import com.github.llh4github.kinoapi.contanst.HttpMethodEnum
 import com.github.llh4github.kinoapi.dto.BaseUpdateDto
+import com.github.llh4github.kinoapi.model.inner.InsideUrl
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull
@@ -13,6 +15,7 @@ import jakarta.validation.constraints.Pattern
  * Created At 2023/4/4 16:54
  * @author llh
  */
+@ToJimmerEntity(InsideUrl::class)
 data class InsideUrlUpdateDto(
     @NotNull
     @get:Schema(title = "请求方法")

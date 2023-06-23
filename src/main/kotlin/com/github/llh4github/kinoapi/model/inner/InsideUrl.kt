@@ -2,15 +2,10 @@ package com.github.llh4github.kinoapi.model.inner
 
 import com.github.llh4github.kinoapi.contanst.HttpMethodEnum
 import com.github.llh4github.kinoapi.model.BaseModel
-import com.github.llh4github.kinoapi.model.BaseModelInput
 import com.github.llh4github.kinoapi.model.auth.Permission
 import io.swagger.v3.oas.annotations.media.Schema
-import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.*
-import org.mapstruct.BeanMapping
-import org.mapstruct.Mapper
-import org.mapstruct.ReportingPolicy
-import org.mapstruct.factory.Mappers
+
 
 /**
  *
@@ -44,27 +39,4 @@ interface InsideUrl : BaseModel {
 
     @IdView("permissions")
     val permissionIds: List<Int>
-}
-
-@Deprecated("改用 menu ")
-data class InsideUrlInput(
-    val method: HttpMethodEnum,
-    val url: String,
-    val remark: String,
-    val permissionOrMode: Boolean,
-    val permissionIds: MutableList<Int> = mutableListOf(),
-) : BaseModelInput(), Input<InsideUrl> {
-
-    override fun toEntity() = CONVERTER.toModel(this)
-
-    companion object {
-        @JvmStatic
-        private val CONVERTER = Mappers.getMapper(Converter::class.java)
-    }
-
-    @Mapper
-    internal interface Converter {
-        @BeanMapping(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-        fun toModel(input: InsideUrlInput): InsideUrl
-    }
 }

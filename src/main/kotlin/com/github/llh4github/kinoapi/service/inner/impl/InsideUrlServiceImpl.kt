@@ -2,10 +2,10 @@ package com.github.llh4github.kinoapi.service.inner.impl
 
 import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
-import com.github.llh4github.kinoapi.dto.convert.DtoConvert
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlAddDto
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlQueryDto
 import com.github.llh4github.kinoapi.dto.inner.InsideUrlUpdateDto
+import com.github.llh4github.kinoapi.dto.inner.toJimmerEntity
 import com.github.llh4github.kinoapi.model.inner.*
 import com.github.llh4github.kinoapi.repository.inner.InsideUrlRepository
 import com.github.llh4github.kinoapi.service.inner.InsideUrlService
@@ -22,7 +22,7 @@ class InsideUrlServiceImpl(
 ) : InsideUrlService {
     @Transactional
     override fun addByDto(dto: InsideUrlAddDto): Boolean {
-        val input = DtoConvert.insideUrl.toDbInput(dto)
+        val input = dto.toJimmerEntity()
         insideUrlRepository.save(input)
         return true
     }
@@ -34,7 +34,7 @@ class InsideUrlServiceImpl(
 
     @Transactional
     override fun updateByDto(dto: InsideUrlUpdateDto): Boolean {
-        val input = DtoConvert.insideUrl.toDbInput(dto)
+        val input = dto.toJimmerEntity()
         insideUrlRepository.update(input)
         return true
     }

@@ -1,6 +1,6 @@
 package com.github.llh4github.kinoapi.repository
 
-import com.github.llh4github.kinoapi.model.inner.MenuFrontInput
+import com.github.llh4github.kinoapi.model.inner.helper.MenuFrontInput
 import com.github.llh4github.kinoapi.repository.inner.MenuFrontRepository
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -38,7 +38,6 @@ class MenuFrontRepositoryTest {
             name = "test",
             router = "/test/test4",
             parentId = 1,
-            children = null,
         )
         input.id = 11
         input.createdTime = LocalDateTime.now()

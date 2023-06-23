@@ -50,9 +50,9 @@ dependencies {
     //region jimmer框架
     implementation("org.babyfish.jimmer:jimmer-spring-boot-starter:${jimmerVersion}")
     ksp("org.babyfish.jimmer:jimmer-ksp:${jimmerVersion}")
-    implementation("org.mapstruct:mapstruct:${mapstrctVersion}")
-    kapt("org.mapstruct:mapstruct-processor:${mapstrctVersion}")
-    kapt("org.babyfish.jimmer:jimmer-mapstruct-apt:${jimmerVersion}")
+//    implementation("org.mapstruct:mapstruct:${mapstrctVersion}")
+//    kapt("org.mapstruct:mapstruct-processor:${mapstrctVersion}")
+//    kapt("org.babyfish.jimmer:jimmer-mapstruct-apt:${jimmerVersion}")
     //endregion
     implementation("org.apache.logging.log4j:log4j-api-kotlin:1.2.0")
     implementation("org.springframework.boot:spring-boot-starter-actuator")

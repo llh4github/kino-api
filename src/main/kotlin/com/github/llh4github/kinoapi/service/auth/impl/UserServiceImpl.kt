@@ -4,10 +4,8 @@ import cn.dev33.satoken.stp.StpUtil
 import com.github.llh4github.kinoapi.contanst.ErrorCode
 import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.*
-import com.github.llh4github.kinoapi.dto.convert.DtoConvert
 import com.github.llh4github.kinoapi.exception.AppException
 import com.github.llh4github.kinoapi.model.auth.*
-import com.github.llh4github.kinoapi.model.auth.helper.UserInput
 import com.github.llh4github.kinoapi.repository.auth.RoleRepository
 import com.github.llh4github.kinoapi.repository.auth.UserRepository
 import com.github.llh4github.kinoapi.service.auth.UserService
@@ -19,7 +17,6 @@ import org.babyfish.jimmer.sql.kt.ast.expression.desc
 import org.babyfish.jimmer.sql.kt.ast.expression.eq
 import org.babyfish.jimmer.sql.kt.ast.expression.like
 import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
-import org.springframework.beans.BeanUtils
 import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -90,8 +87,8 @@ class UserServiceImpl(
 
     @Transactional
     override fun updateByDto(dto: UserUpdateDto): Boolean {
-        val input = DtoConvert.user.toDbInput(dto)
-        userRepository.update(input)
+        val model = dto.toJimmerEntity()
+        userRepository.update(model)
         return true
     }
 

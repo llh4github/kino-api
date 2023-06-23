@@ -5,7 +5,7 @@ import com.github.llh4github.kinoapi.dto.PageDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionAddDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionQueryDto
 import com.github.llh4github.kinoapi.dto.auth.PermissionUpdateDto
-import com.github.llh4github.kinoapi.dto.convert.DtoConvert
+import com.github.llh4github.kinoapi.dto.auth.toJimmerEntity
 import com.github.llh4github.kinoapi.model.auth.*
 import com.github.llh4github.kinoapi.repository.auth.PermissionRepository
 import com.github.llh4github.kinoapi.service.auth.PermissionService
@@ -20,7 +20,7 @@ class PermissionServiceImpl(
 ) : PermissionService {
     @Transactional
     override fun addByDto(dto: PermissionAddDto): Boolean {
-        val input = DtoConvert.permission.toDbInput(dto)
+        val input = dto.toJimmerEntity()
         permissionRepository.insert(input)
         return true
     }
@@ -31,7 +31,7 @@ class PermissionServiceImpl(
 
     @Transactional
     override fun updateByDto(dto: PermissionUpdateDto): Boolean {
-        val input = DtoConvert.permission.toDbInput(dto)
+        val input = dto.toJimmerEntity()
         permissionRepository.update(input)
         return true
     }

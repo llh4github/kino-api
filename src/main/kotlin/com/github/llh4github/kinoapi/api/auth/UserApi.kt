@@ -33,7 +33,7 @@ class UserApi(
     @PostMapping
     fun addByDto(@RequestBody @Valid dto: UserAddDto): JsonWrapper<Boolean> {
         fillCreateInfo(dto)
-        if (userService.isExistUsername(dto.username, null)) {
+        if (userService.isExistUsername(dto.username)) {
             return error(ErrorCode.AUTH, "用户名已存在")
         }
         if (dto.roleIds.isNotEmpty()) {

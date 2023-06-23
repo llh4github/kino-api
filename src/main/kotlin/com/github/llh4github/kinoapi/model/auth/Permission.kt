@@ -9,10 +9,7 @@ import org.babyfish.jimmer.sql.Entity
 import org.babyfish.jimmer.sql.IdView
 import org.babyfish.jimmer.sql.ManyToMany
 import org.babyfish.jimmer.sql.Table
-import org.mapstruct.BeanMapping
-import org.mapstruct.Mapper
-import org.mapstruct.ReportingPolicy
-import org.mapstruct.factory.Mappers
+
 
 /**
  * 权限数据表
@@ -37,23 +34,4 @@ interface Permission : BaseModel {
 
     @ManyToMany(mappedBy = "permissions")
     val urls:List<InsideUrl>
-}
-
-data class PermissionInput(
-    var code: String? = null,
-    var name: String? = null,
-    var roleIds: List<Int> = mutableListOf(),
-) : BaseModelInput(), Input<Permission> {
-    override fun toEntity(): Permission = CONVERTER.toModel(this)
-
-    companion object {
-        @JvmStatic
-        private val CONVERTER = Mappers.getMapper(Converter::class.java)
-    }
-
-    @Mapper
-    internal interface Converter {
-        @BeanMapping(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-        fun toModel(input: PermissionInput): Permission
-    }
 }

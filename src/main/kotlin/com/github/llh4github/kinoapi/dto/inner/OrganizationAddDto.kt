@@ -1,6 +1,8 @@
 package com.github.llh4github.kinoapi.dto.inner
 
+import com.github.llh4github.jimmerhelper.ToJimmerEntity
 import com.github.llh4github.kinoapi.dto.BaseDto
+import com.github.llh4github.kinoapi.model.inner.Organization
 import io.swagger.v3.oas.annotations.media.Schema
 
 /**
@@ -9,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  * Created At 2023/4/6 19:12
  * @author llh
  */
+@ToJimmerEntity(Organization::class)
 data class OrganizationAddDto(
     @get:Schema(title = "组织名")
     val name: String,

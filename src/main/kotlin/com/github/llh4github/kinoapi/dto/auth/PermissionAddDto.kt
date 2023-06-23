@@ -1,6 +1,8 @@
 package com.github.llh4github.kinoapi.dto.auth
 
+import com.github.llh4github.jimmerhelper.ToJimmerEntity
 import com.github.llh4github.kinoapi.dto.BaseDto
+import com.github.llh4github.kinoapi.model.auth.Permission
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.NotBlank
 
@@ -10,6 +12,7 @@ import jakarta.validation.constraints.NotBlank
  * Created At 2023/3/31 14:40
  * @author llh
  */
+@ToJimmerEntity(Permission::class)
 data class PermissionAddDto(
     @get:NotBlank
     @get:Schema(title = "权限代号")

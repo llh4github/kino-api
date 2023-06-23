@@ -30,7 +30,7 @@ interface UserService {
     /**
      * 用户名[username]是否已经存在。返回true则存在
      */
-    fun isExistUsername(username: String, notId: Int?): Boolean
+    fun isExistUsername(username: String, notId: Int? = null): Boolean
 
     /**
      * 根据用户名[username]查询

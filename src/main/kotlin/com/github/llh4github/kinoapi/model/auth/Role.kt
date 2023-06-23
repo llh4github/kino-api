@@ -1,14 +1,9 @@
 package com.github.llh4github.kinoapi.model.auth
 
 import com.github.llh4github.kinoapi.model.BaseModel
-import com.github.llh4github.kinoapi.model.BaseModelInput
-import org.babyfish.jimmer.Input
 import org.babyfish.jimmer.sql.*
 import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
-import org.mapstruct.BeanMapping
-import org.mapstruct.Mapper
-import org.mapstruct.ReportingPolicy
-import org.mapstruct.factory.Mappers
+
 
 /**
  *
@@ -36,27 +31,6 @@ interface Role : BaseModel {
 
     @IdView("permissions")
     val permissionIds: List<Int>
-}
-
-@Deprecated("使用插件生成的类")
-data class RoleInput(
-    var code: String? = null,
-    var name: String? = null,
-    val permissionIds: List<Int> = mutableListOf(),
-    val permissions: List<PermissionInput> = mutableListOf(),
-) : BaseModelInput(), Input<Role> {
-    override fun toEntity(): Role = CONVERTER.toModel(this)
-
-    companion object {
-        @JvmStatic
-        private val CONVERTER = Mappers.getMapper(Converter::class.java)
-    }
-
-    @Mapper
-    internal interface Converter {
-        @BeanMapping(unmappedTargetPolicy = ReportingPolicy.IGNORE)
-        fun toModel(input: RoleInput): Role
-    }
 }
 
 object RoleFetcher{

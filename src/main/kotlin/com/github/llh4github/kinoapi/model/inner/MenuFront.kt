@@ -1,6 +1,5 @@
 package com.github.llh4github.kinoapi.model.inner
 
-import com.github.llh4github.kinoapi.dto.convert.InnerConvert
 import com.github.llh4github.kinoapi.model.BaseModel
 import com.github.llh4github.kinoapi.model.BaseModelInput
 import io.swagger.v3.oas.annotations.media.Schema
@@ -36,17 +35,6 @@ interface MenuFront : BaseModel {
     val children: List<MenuFront>
 }
 
-data class MenuFrontInput(
-    val name: String,
-    val router: String,
-    val parentId: Int? = null,
-    val children: List<MenuFrontInput>?
-) : BaseModelInput(), Input<MenuFront> {
-
-    override fun toEntity(): MenuFront {
-        return InnerConvert.menu.toModel(this)
-    }
-}
 
 object MenuFetcher {
     val TREE_FETCH = newFetcher(MenuFront::class).by {

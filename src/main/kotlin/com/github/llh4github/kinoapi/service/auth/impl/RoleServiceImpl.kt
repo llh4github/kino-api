@@ -6,13 +6,11 @@ import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
 import com.github.llh4github.kinoapi.dto.auth.RoleQueryDto
 import com.github.llh4github.kinoapi.dto.auth.RoleUpdateDto
 import com.github.llh4github.kinoapi.dto.auth.toJimmerEntity
-import com.github.llh4github.kinoapi.dto.convert.DtoConvert
 import com.github.llh4github.kinoapi.model.auth.*
 import com.github.llh4github.kinoapi.repository.auth.RoleRepository
 import com.github.llh4github.kinoapi.service.auth.RoleService
 import org.apache.logging.log4j.kotlin.Logging
 import org.babyfish.jimmer.sql.kt.ast.expression.*
-import org.springframework.beans.BeanUtils
 import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -70,7 +68,7 @@ class RoleServiceImpl(
 
     @Transactional
     override fun updateByDto(dto: RoleUpdateDto): Boolean {
-        val model = DtoConvert.role.toDbInput(dto)
+        val model = dto.toJimmerEntity()
         repository.update(model)
         return true
     }
