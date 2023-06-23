@@ -32,21 +32,3 @@ interface BaseModel {
     @get:Schema(title = "创建者ID")
     val createdBy: Int?
 }
-
-@Deprecated("改用插件生成的父级接口")
-abstract class BaseModelInput {
-    @get:Schema(title = "数据ID", example = "1")
-    var id: Int? = null
-
-    @get:Schema(title = "创建时间")
-    var createdTime: LocalDateTime? = null
-
-    @get:Schema(title = "更新时间")
-    var updatedTime: LocalDateTime? = null
-
-    @get:Schema(title = "更新者ID")
-    var updatedBy: Int? = null
-
-    @get:Schema(title = "创建者ID")
-    var createdBy: Int? = null
-}

@@ -1,6 +1,7 @@
 package com.github.llh4github.kinoapi.exception
 
 import com.github.llh4github.kinoapi.contanst.ErrorCode
+import com.github.llh4github.kinoapi.contanst.IErrorCode
 
 /**
  *
@@ -8,10 +9,10 @@ import com.github.llh4github.kinoapi.contanst.ErrorCode
  * @author llh
  */
 class AppException : RuntimeException {
-    var errorCode: ErrorCode = ErrorCode.UNKNOWN_ERROR
+    var errorCode: IErrorCode = ErrorCode.UNKNOWN_ERROR
 
     constructor(message: String? = null) : super(message)
-    constructor(code: ErrorCode, message: String? = null) : super(message) {
+    constructor(code: IErrorCode, message: String? = null) : super(message) {
         errorCode = code
     }
 
