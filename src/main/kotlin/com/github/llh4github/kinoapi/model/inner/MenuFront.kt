@@ -1,5 +1,6 @@
 package com.github.llh4github.kinoapi.model.inner
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.github.llh4github.kinoapi.model.BaseModel
 import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.sql.*
@@ -11,15 +12,27 @@ import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
  * @author llh
  */
 @Entity
-@Table(name = "inner_menu")
-@Schema(title = "前端菜单数据")
+@Table(name = "inner_menu_auth")
+@Schema(title = "菜单权限")
 interface MenuFront : BaseModel {
 
-    @get:Schema(title = "名称")
+    @get:JsonIgnore
+    @get:Schema(title = "标题")
+    val title: String
+
+    @get:Schema(title = "英文名称")
     val name: String
 
     @get:Schema(title = "路由路径")
-    val router: String
+    val path: String
+
+    @get:JsonIgnore
+    @get:Schema(title = "ICON名")
+    val icon: String
+
+    @get:JsonIgnore
+    @get:Schema(title = "名次")
+    val rank: Int
 
     @get:Schema(title = "上级菜单ID", nullable = true)
     val parentId: Int?
@@ -31,8 +44,42 @@ interface MenuFront : BaseModel {
 
     @OneToMany(mappedBy = "parent")
     val children: List<MenuFront>
+
+    @Transient
+    @get:Schema(title = "菜单元数据")
+    val meta: MenuMeta
+        get() {
+            return MenuMeta(title, icon, rank)
+        }
 }
 
+data class MenuMeta(
+
+    @get:Schema(title = "标题")
+    val title: String,
+
+    @get:Schema(title = "ICON名")
+    val icon: String,
+
+    @get:Schema(title = "名次")
+    val rank: Int,
+
+    @get:Schema(title = "角色代号列表")
+    val roles: MutableList<String> = mutableListOf(),
+
+    @get:Schema(title = "权限代号列表")
+    val auths: MutableList<String> = mutableListOf(),
+) {
+    fun addRoles(roles: List<String>): MenuMeta {
+        this.roles.addAll(roles)
+        return this
+    }
+
+    fun addAuths(auths: List<String>): MenuMeta {
+        this.auths.addAll(auths)
+        return this
+    }
+}
 
 object MenuFetcher {
     val TREE_FETCH = newFetcher(MenuFront::class).by {
