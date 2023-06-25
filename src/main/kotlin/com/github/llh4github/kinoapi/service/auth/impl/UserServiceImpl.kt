@@ -20,6 +20,7 @@ import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
 import org.springframework.data.domain.Page
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
+import java.time.LocalDateTime
 
 @Service
 class UserServiceImpl(
@@ -50,9 +51,11 @@ class UserServiceImpl(
         }
         StpUtil.login(u.id)
         val info = StpUtil.getTokenInfo()
+        val expire = LocalDateTime.now().plusSeconds(info.tokenTimeout)
         return LoginTokenDto(
             username = u.username,
-            accessToken = info.tokenValue
+            accessToken = info.tokenValue,
+            expires = expire
         )
     }
 
