@@ -1,12 +1,15 @@
 package com.github.llh4github.kinoapi.config
 
 import cn.dev33.satoken.interceptor.SaInterceptor
+import cn.dev33.satoken.jwt.StpLogicJwtForSimple
 import cn.dev33.satoken.router.SaHttpMethod
 import cn.dev33.satoken.router.SaRouter
+import cn.dev33.satoken.stp.StpLogic
 import cn.dev33.satoken.stp.StpUtil
 import com.github.llh4github.kinoapi.service.inner.InsideUrlService
 import org.apache.logging.log4j.kotlin.logger
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.config.annotation.CorsRegistry
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry
@@ -60,5 +63,10 @@ class SaTokenConfigure(
 //            .allowedMethods("GET", "POST", "DELETE", "PUT", "OPTIONS")
             .allowedMethods("*")
             .maxAge(3600)
+    }
+
+    @Bean
+    fun stpLogicJwt(): StpLogic {
+        return StpLogicJwtForSimple()
     }
 }

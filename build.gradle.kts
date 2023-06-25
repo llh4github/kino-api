@@ -43,6 +43,7 @@ dependencies {
     //region 安全框架
     implementation("cn.dev33:sa-token-spring-boot3-starter:${saTokenVersion}")
     implementation("cn.dev33:sa-token-dao-redis-jackson:${saTokenVersion}")
+    implementation("cn.dev33:sa-token-jwt:${saTokenVersion}")
     //endregion
 
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}")

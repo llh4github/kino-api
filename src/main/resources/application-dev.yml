@@ -19,6 +19,7 @@ anonymous:
   urls: /login,/v3/api-docs
 ############## Sa-Token 配置 (文档: https://sa-token.cc) ##############
 sa-token:
+  jwt-secret-key: MVlZz98Qwh3o7nk50pqEbuwhaHuXBa5
   # token名称 (同时也是cookie名称)
   token-name: Authorization
   # token有效期，单位s 默认30天, -1代表永不过期
