@@ -3,6 +3,7 @@ package com.github.llh4github.kinoapi.model.inner
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.github.llh4github.kinoapi.model.BaseModel
 import io.swagger.v3.oas.annotations.media.Schema
+import org.babyfish.jimmer.Formula
 import org.babyfish.jimmer.sql.*
 import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
 
@@ -45,12 +46,13 @@ interface MenuFront : BaseModel {
     @OneToMany(mappedBy = "parent")
     val children: List<MenuFront>
 
-    @Transient
+    @Formula(dependencies = ["title", "icon", "rank"])
     @get:Schema(title = "菜单元数据")
     val meta: MenuMeta
         get() {
             return MenuMeta(title, icon, rank)
         }
+
 }
 
 data class MenuMeta(
@@ -84,6 +86,7 @@ data class MenuMeta(
 object MenuFetcher {
     val TREE_FETCH = newFetcher(MenuFront::class).by {
         allScalarFields()
+        meta()
         children({ recursive() }) {
             allScalarFields()
         }

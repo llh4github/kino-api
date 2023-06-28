@@ -36,7 +36,7 @@ class MenuFrontRepositoryTest {
     fun testModify() {
         val input = MenuFrontInput(
             name = "test",
-            router = "/test/test4",
+            path = "/test/test4",
             parentId = 1,
         )
         input.id = 11

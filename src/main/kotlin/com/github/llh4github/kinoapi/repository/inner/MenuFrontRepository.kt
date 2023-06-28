@@ -54,7 +54,7 @@ interface MenuFrontRepository : KRepository<MenuFront, Int> {
                 where(table.name like this)
             }
             router?.takeIf { it.isNotEmpty() }?.apply {
-                where(table.router like this)
+                where(table.path like this)
             }
             select(table.fetch(MenuFetcher.TREE_FETCH))
         }.execute()
