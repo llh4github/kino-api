@@ -89,6 +89,7 @@ object MenuFetcher {
         meta()
         children({ recursive() }) {
             allScalarFields()
+            meta()
         }
     }
     val SON_ID_FETCH = newFetcher(MenuFront::class).by {
