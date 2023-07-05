@@ -17,6 +17,9 @@ interface User : BaseModel {
     @Key
     val username: String
 
+    @get:Schema(title = "昵称")
+    val nickname: String
+
     @Column(name = "password")
     @get:JsonIgnore
     val password: String
