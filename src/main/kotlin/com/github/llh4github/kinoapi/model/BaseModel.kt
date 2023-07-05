@@ -1,5 +1,7 @@
 package com.github.llh4github.kinoapi.model
 
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.github.llh4github.kinoapi.contanst.DateTimeConst
 import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.sql.GeneratedValue
 import org.babyfish.jimmer.sql.GenerationType
@@ -20,9 +22,11 @@ interface BaseModel {
     @get:Schema(title = "数据ID", example = "1")
     val id: Int
 
+    @get:JsonFormat(pattern = DateTimeConst.yyyyMMddHHmmss)
     @get:Schema(title = "创建时间")
     val createdTime: LocalDateTime
 
+    @get:JsonFormat(pattern = DateTimeConst.yyyyMMddHHmmss)
     @get:Schema(title = "更新时间")
     val updatedTime: LocalDateTime
 
