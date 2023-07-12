@@ -17,6 +17,8 @@ data class UserAddDto(
     @NotEmpty
     @Schema(title = "用户名", example = "Tom")
     val username: String,
+    @Schema(title = "昵称", example = "Tom")
+    val nickname: String,
     @Schema(title = "密码", example = "Tom")
     val password: String,
 

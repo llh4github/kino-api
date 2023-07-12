@@ -1,5 +1,6 @@
 package com.github.llh4github.kinoapi.dto.auth
 
+import com.github.llh4github.kinoapi.contanst.enums.UserStatusEnums
 import com.github.llh4github.kinoapi.dto.IdsDto
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
@@ -13,5 +14,5 @@ import jakarta.validation.constraints.Min
 data class UserStatusUpdateDto(
     @get:Min(value = 0)
     @get:Max(value = 99)
-    val status: Int
+    val status: UserStatusEnums
 ) : IdsDto()

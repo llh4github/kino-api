@@ -1,5 +1,6 @@
 package com.github.llh4github.kinoapi.repository.auth
 
+import com.github.llh4github.kinoapi.contanst.enums.UserStatusEnums
 import com.github.llh4github.kinoapi.dto.auth.UserPwdUpdateDto
 import com.github.llh4github.kinoapi.model.auth.*
 import org.babyfish.jimmer.spring.repository.KRepository
@@ -13,7 +14,7 @@ import org.babyfish.jimmer.sql.kt.ast.expression.valueIn
  */
 interface UserRepository : KRepository<User, Int> {
 
-    fun updateStatus(ids: List<Int>, status: Int): Int {
+    fun updateStatus(ids: List<Int>, status: UserStatusEnums): Int {
         if (ids.isEmpty()) return 0
         return sql.createUpdate(User::class) {
             set(table.status, status)

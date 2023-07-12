@@ -1,6 +1,7 @@
 package com.github.llh4github.kinoapi.model.auth
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.github.llh4github.kinoapi.contanst.enums.UserStatusEnums
 import com.github.llh4github.kinoapi.model.BaseModel
 import io.swagger.v3.oas.annotations.media.Schema
 import org.babyfish.jimmer.sql.*
@@ -25,7 +26,7 @@ interface User : BaseModel {
     val password: String
 
     @get:Schema(title = "用户状态")
-    val status: Int
+    val status: UserStatusEnums
 
     @ManyToMany
     @JoinTable(

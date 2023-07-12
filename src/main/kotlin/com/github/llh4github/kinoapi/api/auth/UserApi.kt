@@ -3,6 +3,7 @@ package com.github.llh4github.kinoapi.api.auth
 import cn.dev33.satoken.stp.StpUtil
 import com.github.llh4github.kinoapi.api.BaseApi
 import com.github.llh4github.kinoapi.contanst.ErrorCode
+import com.github.llh4github.kinoapi.contanst.enums.UserStatusEnums
 import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.JsonWrapper
 import com.github.llh4github.kinoapi.dto.PageDto
@@ -81,7 +82,7 @@ class UserApi(
     fun updateStatusDisable(
         @RequestBody @Valid ids: IdsDto
     ): JsonWrapper<Int> {
-        val dto = UserStatusUpdateDto(0)
+        val dto = UserStatusUpdateDto(UserStatusEnums.NORMAL)
         dto.ids = ids.ids
         val rs = userService.updateUserStatus(dto)
         return ok(rs)
