@@ -2,7 +2,10 @@ package com.github.llh4github.kinoapi.service.auth.impl
 
 import com.github.llh4github.kinoapi.dto.IdsDto
 import com.github.llh4github.kinoapi.dto.PageDto
-import com.github.llh4github.kinoapi.dto.auth.*
+import com.github.llh4github.kinoapi.dto.auth.RoleAddDto
+import com.github.llh4github.kinoapi.dto.auth.RoleQueryDto
+import com.github.llh4github.kinoapi.dto.auth.RoleUpdateDto
+import com.github.llh4github.kinoapi.dto.auth.toJimmerEntityBuilder
 import com.github.llh4github.kinoapi.model.auth.*
 import com.github.llh4github.kinoapi.repository.auth.RoleRepository
 import com.github.llh4github.kinoapi.service.auth.RoleService
@@ -68,7 +71,9 @@ class RoleServiceImpl(
 
     @Transactional
     override fun updateByDto(dto: RoleUpdateDto): Boolean {
-        val model = dto.toJimmerEntity()
+        val model = dto.toJimmerEntityBuilder()
+            .permissionIds(dto.permissionIds)
+            .build()
         repository.update(model)
         return true
     }
