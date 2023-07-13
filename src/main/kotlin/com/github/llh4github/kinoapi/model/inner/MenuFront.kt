@@ -35,6 +35,7 @@ interface MenuFront : BaseModel {
     @get:Schema(title = "名次")
     val rank: Int
 
+    @IdView
     @get:Schema(title = "上级菜单ID", nullable = true)
     val parentId: Int?
 

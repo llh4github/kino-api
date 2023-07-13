@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
 
-    val jimmerVersion = "0.7.19"
+    val jimmerVersion = "0.7.114"
     val saTokenVersion = "1.34.0"
     val springdocVersion = "2.0.2"
     val mapstrctVersion = "1.5.5.Final"
