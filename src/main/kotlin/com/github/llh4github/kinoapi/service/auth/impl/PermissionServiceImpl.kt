@@ -63,6 +63,7 @@ class PermissionServiceImpl(
             orderBy(table.updatedTime.desc())
             select(table)
         }
+
         return permissionRepository
             .pager(page.toPageRequest())
             .execute(condition)

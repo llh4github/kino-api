@@ -54,6 +54,7 @@ class PermissionApi(
     fun updateByDto(
         @RequestBody @Valid dto: PermissionUpdateDto
     ): JsonWrapper<Boolean> {
+        fillUpdateInfo(dto)
         val rs = permissionService.updateByDto(dto)
         return ok(rs)
     }
