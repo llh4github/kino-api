@@ -31,6 +31,6 @@ interface Permission : BaseModel {
     @IdView("roles")
     val roleIds: List<Int>
 
-    @ManyToMany(mappedBy = "permissions")
-    val urls:List<InsideUrl>
+//    @ManyToMany(mappedBy = "permissions")
+//    val urls:List<InsideUrl>
 }

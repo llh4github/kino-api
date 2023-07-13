@@ -39,16 +39,16 @@ class SaTokenConfigure(
 //                .check { _ -> StpUtil.checkLogin() }
 
             urlAndPermission.forEach { ele ->
-                val codes = ele.permissions.map { it.code }.toList()
-                SaRouter.match(ele.method.toSaHttpMethod())
-                    .match(ele.url)
-                    .check { _ ->
-                        if (ele.permissionOrMode) {
-                            StpUtil.checkPermissionOr(*codes.toTypedArray())
-                        } else {
-                            StpUtil.checkPermissionAnd(*codes.toTypedArray())
-                        }
-                    }
+//                val codes = ele.permissions.map { it.code }.toList()
+//                SaRouter.match(ele.method.toSaHttpMethod())
+//                    .match(ele.url)
+//                    .check { _ ->
+//                        if (ele.permissionOrMode) {
+//                            StpUtil.checkPermissionOr(*codes.toTypedArray())
+//                        } else {
+//                            StpUtil.checkPermissionAnd(*codes.toTypedArray())
+//                        }
+//                    }
             }
         })
             .addPathPatterns("/**")

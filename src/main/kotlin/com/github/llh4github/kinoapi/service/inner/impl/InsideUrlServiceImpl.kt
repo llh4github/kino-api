@@ -66,7 +66,7 @@ class InsideUrlServiceImpl(
     override fun allUrlAndPermissionCode(): List<InsideUrl> {
         return insideUrlRepository.findAll(fetcher = newFetcher(InsideUrl::class).by {
             allScalarFields()
-            permissions { code() }
+//            permissions { code() }
         })
     }
 }

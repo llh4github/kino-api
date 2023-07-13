@@ -29,14 +29,14 @@ interface InsideUrl : BaseModel {
     @get:Schema(title = "权限校验模式")
     val permissionOrMode: Boolean
 
-    @ManyToMany
-    @JoinTable(
-        name = "link_url_permission",
-        inverseJoinColumnName = "permission_id",
-        joinColumnName = "url_id"
-    )
-    val permissions: List<Permission>
-
-    @IdView("permissions")
-    val permissionIds: List<Int>
+//    @ManyToMany
+//    @JoinTable(
+//        name = "link_url_permission",
+//        inverseJoinColumnName = "permission_id",
+//        joinColumnName = "url_id"
+//    )
+//    val permissions: List<Permission>
+//
+//    @IdView("permissions")
+//    val permissionIds: List<Int>
 }
