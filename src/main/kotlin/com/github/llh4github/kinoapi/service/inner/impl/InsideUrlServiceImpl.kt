@@ -9,6 +9,7 @@ import com.github.llh4github.kinoapi.dto.inner.toJimmerEntity
 import com.github.llh4github.kinoapi.model.inner.*
 import com.github.llh4github.kinoapi.repository.inner.InsideUrlRepository
 import com.github.llh4github.kinoapi.service.inner.InsideUrlService
+import org.babyfish.jimmer.spring.repository.fetchPage
 import org.babyfish.jimmer.sql.kt.ast.expression.eq
 import org.babyfish.jimmer.sql.kt.ast.expression.like
 import org.babyfish.jimmer.sql.kt.fetcher.newFetcher
@@ -52,9 +53,7 @@ class InsideUrlServiceImpl(
             }
             select(table)
         }
-        return insideUrlRepository
-            .pager(page.toPageRequest())
-            .execute(condition)
+        return condition.fetchPage(page.page, page.size)
     }
 
     override fun urlExist(url: String): Boolean {

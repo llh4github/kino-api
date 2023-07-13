@@ -15,6 +15,7 @@ data class PageDto(
     @Schema(title = "每页大小")
     val size: Int = 10,
 ) {
+    @Deprecated("相关方法被删了")
     fun toPageRequest(): PageRequest {
         // 前端页码比后台多1
         val p1 = page - 1

@@ -9,6 +9,7 @@ import com.github.llh4github.kinoapi.model.auth.*
 import com.github.llh4github.kinoapi.repository.auth.RoleRepository
 import com.github.llh4github.kinoapi.repository.auth.UserRepository
 import com.github.llh4github.kinoapi.service.auth.UserService
+import com.github.llh4github.kinoapi.service.pageQuery
 import com.github.llh4github.kinoapi.util.checkPwd
 import com.github.llh4github.kinoapi.util.hashPwd
 import org.apache.logging.log4j.kotlin.Logging
@@ -128,8 +129,6 @@ class UserServiceImpl(
             select(table.fetch(fetcher))
         }
 
-        return userRepository
-            .pager(page.toPageRequest())
-            .execute(condition)
+        return condition.pageQuery(page)
     }
 }
