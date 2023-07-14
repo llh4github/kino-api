@@ -12,7 +12,5 @@ import jakarta.validation.constraints.Min
  * @author llh
  */
 data class UserStatusUpdateDto(
-    @get:Min(value = 0)
-    @get:Max(value = 99)
     val status: UserStatusEnums
 ) : IdsDto()
