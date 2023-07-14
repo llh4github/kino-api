@@ -125,6 +125,12 @@ class UserServiceImpl(
             dto?.username?.takeIf { it.isNotEmpty() }?.let {
                 where(table.username like it)
             }
+            dto?.nickname?.takeIf { it.isNotEmpty() }?.let {
+                where(table.nickname like it)
+            }
+            dto?.status?.let {
+                where(table.status eq it)
+            }
             orderBy(table.updatedTime.desc())
             select(table.fetch(fetcher))
         }
