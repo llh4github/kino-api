@@ -11,7 +11,11 @@ import org.babyfish.jimmer.sql.EnumType
  */
 @EnumType(EnumType.Strategy.ORDINAL)
 enum class UserStatusEnums {
-    @EnumItem(ordinal = 1)
+
+    @EnumItem(ordinal = 0)
+    INACTIVE,
+
+    @EnumItem(ordinal = 5)
     NORMAL,
 
     @EnumItem(ordinal = 9)
