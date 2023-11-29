@@ -1,1 +1,1 @@
-use Kotlin + SpringBoot 3 + Jimmer build web api app.
+use Kotlin + SpringBoot 3 + Jimmer bu ild web api app.

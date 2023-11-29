@@ -1,0 +1,5 @@
+jimmer:
+  language: kotlin
+
+server:
+  port: 9001

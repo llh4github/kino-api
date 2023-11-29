@@ -6,6 +6,7 @@ plugins {
     id("org.graalvm.buildtools.native") version "0.9.28"
     kotlin("jvm") version "1.9.20"
     kotlin("plugin.spring") version "1.9.20"
+    id("com.google.devtools.ksp") version "1.9.20-1.0.14"
 }
 
 group = "io.github.llh4github"
@@ -18,8 +19,16 @@ java {
 repositories {
     mavenCentral()
 }
-
+val jimmerVersion = "0.8.44"
 dependencies {
+    ksp("org.babyfish.jimmer:jimmer-ksp:${jimmerVersion}")
+    implementation("org.babyfish.jimmer:jimmer-spring-boot-starter:${jimmerVersion}")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+
+    implementation("com.mysql:mysql-connector-j")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -35,4 +44,9 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+kotlin {
+    sourceSets.main {
+        kotlin.srcDir("build/generated/ksp/main/kotlin")
+    }
 }
