@@ -1,5 +1,6 @@
 package io.github.llh4github.kinoapi.model.auth
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import io.github.llh4github.kinoapi.model.BaseModel
 import org.babyfish.jimmer.sql.*
 
@@ -18,6 +19,7 @@ interface User : BaseModel {
     @Key
     val username: String
 
+    @get:JsonIgnore
     val password: String
 
     @ManyToMany

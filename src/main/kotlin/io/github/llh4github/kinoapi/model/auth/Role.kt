@@ -18,13 +18,10 @@ interface Role : BaseModel {
 
     val name: String
 
+    @Key
     val code: String
 
-    @ManyToMany
-    @JoinTable(
-        name = "auth_user_role_link",
-        joinColumnName = "role_id",
-        inverseJoinColumnName = "user_id"
-    )
+
+    @ManyToMany(mappedBy = "roles")
     val users: List<User>
 }
