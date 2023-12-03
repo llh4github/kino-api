@@ -21,6 +21,9 @@ repositories {
 }
 val jimmerVersion = "0.8.44"
 dependencies {
+
+    implementation("org.apache.logging.log4j:log4j-api-kotlin:1.3.0")
+
     ksp("org.babyfish.jimmer:jimmer-ksp:${jimmerVersion}")
     implementation("org.babyfish.jimmer:jimmer-spring-boot-starter:${jimmerVersion}")
 
