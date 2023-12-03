@@ -1,6 +1,5 @@
 package io.github.llh4github.kinoapi.service
 
-import io.github.llh4github.kinoapi.dao.BaseDao
 import io.github.llh4github.kinoapi.model.BaseModel
 
 /**

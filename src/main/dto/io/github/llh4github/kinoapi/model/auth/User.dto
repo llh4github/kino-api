@@ -1,6 +1,9 @@
 UserDetailView{
     #allScalars
 }
+UserSimpleView{
+    #allScalars
+}
 input UserInput{
     username
     password

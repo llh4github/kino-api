@@ -4,6 +4,7 @@ import io.github.llh4github.kinoapi.dao.auth.UserDao
 import io.github.llh4github.kinoapi.model.auth.User
 import io.github.llh4github.kinoapi.service.auth.UserService
 import org.apache.logging.log4j.kotlin.Logging
+import org.babyfish.jimmer.sql.fetcher.Fetcher
 import org.springframework.stereotype.Service
 
 @Service
@@ -12,7 +13,7 @@ class UserServiceImpl(
 ) : UserService {
     companion object : Logging
 
-    override fun findById(id: Int): User? {
-        return dao.findNullable(id)
+    override fun findById(id: Int, fetcher: Fetcher<User>): User? {
+        return dao.findNullable(id, fetcher)
     }
 }
