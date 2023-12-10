@@ -27,10 +27,7 @@ class UserApi(
 
     @GetMapping("{userId}")
     @Operation(summary = "根据id获取数据")
-    fun id(@PathVariable userId: Int): JsonWrapper<@FetchBy(
-        value = "UserSimpleView",
-        ownerType = UserSimpleView::class
-    ) User> {
+    fun id(@PathVariable userId: Int): JsonWrapper<User> {
         val model = service.findById(userId)
         return ok(model)
     }

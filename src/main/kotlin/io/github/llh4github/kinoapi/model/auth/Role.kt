@@ -24,4 +24,12 @@ interface Role : BaseModel {
 
     @ManyToMany(mappedBy = "roles")
     val users: List<User>
+
+    @ManyToMany
+    @JoinTable(
+        name = "auth_role_permission_link",
+        joinColumnName = "permission_id",
+        inverseJoinColumnName = "role_id"
+    )
+    val permissions: List<Permission>
 }
