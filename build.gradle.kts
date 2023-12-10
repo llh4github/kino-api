@@ -20,8 +20,12 @@ repositories {
     mavenCentral()
 }
 val jimmerVersion = "0.8.44"
+val jjwtVersion = "0.11.5"
 dependencies {
 
+    implementation("io.jsonwebtoken:jjwt-api:${jjwtVersion}")
+    implementation("io.jsonwebtoken:jjwt-impl:${jjwtVersion}")
+    runtimeOnly("io.jsonwebtoken:jjwt-jackson:${jjwtVersion}")
     implementation("org.apache.logging.log4j:log4j-api-kotlin:1.3.0")
 
     ksp("org.babyfish.jimmer:jimmer-ksp:${jimmerVersion}")
