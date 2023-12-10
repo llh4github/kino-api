@@ -1,0 +1,13 @@
+UserDetailView{
+    #allScalars
+}
+UserSimpleView{
+    #allScalars
+}
+input UserInput{
+    username
+    password
+}
+specification UserSpecification{
+    like/i(username)
+}

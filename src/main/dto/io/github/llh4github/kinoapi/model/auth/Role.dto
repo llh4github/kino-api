@@ -1,0 +1,11 @@
+input RoleAddInput{
+    name
+    code
+    id(users) as userIds
+}
+
+input RolePermissionAddInput{
+    name
+    code
+    id(permissions) as permissionIds
+}
