@@ -4,6 +4,20 @@ UserDetailView{
 UserSimpleView{
     #allScalars
 }
+UserAuthView{
+    username
+    userId
+    password
+    roles{
+        code
+        name
+        permissions{
+            code
+            name
+        }
+
+    }
+}
 input UserInput{
     username
     password

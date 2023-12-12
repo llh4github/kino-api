@@ -20,9 +20,10 @@ repositories {
     mavenCentral()
 }
 val jimmerVersion = "0.8.44"
-val jjwtVersion = "0.11.5"
+val jjwtVersion = "0.12.3"
 dependencies {
 
+    implementation("com.github.yitter:yitter-idgenerator:1.0.6")
     implementation("io.jsonwebtoken:jjwt-api:${jjwtVersion}")
     implementation("io.jsonwebtoken:jjwt-impl:${jjwtVersion}")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:${jjwtVersion}")
@@ -36,6 +37,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
     implementation("com.mysql:mysql-connector-j")
+    implementation("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-web")
