@@ -1,5 +1,7 @@
 package io.github.llh4github.kinoapi.exceptions
 
+import io.github.llh4github.kinoapi.dto.RespMsg
+
 /**
  * 应用根异常
  * Created At 2023/12/11 22:55

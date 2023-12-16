@@ -2,6 +2,7 @@ package io.github.llh4github.kinoapi.dto.security
 
 import io.github.llh4github.kinoapi.model.auth.User
 import org.springframework.security.core.GrantedAuthority
+import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 
 /**
@@ -14,7 +15,7 @@ data class UserAuthInfo(
     val authorities: List<String>
 ) : UserDetails {
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
-        return authorities.map { PermissionStr(it) }.toMutableList()
+        return authorities.map { SimpleGrantedAuthority(it) }.toMutableList()
     }
 
     override fun getPassword(): String {
