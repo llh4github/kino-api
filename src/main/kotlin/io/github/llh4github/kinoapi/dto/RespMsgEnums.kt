@@ -12,4 +12,5 @@ enum class RespMsgEnums(
     OK(1, "OK"),
     ERROR(Int.MAX_VALUE, "未知错误"),
     DATA_NOT_FOUND(404_000, "数据不存在"),
+    AUTH_ERROR_JWT(401_001, "JWT创建出错"),
 }
