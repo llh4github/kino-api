@@ -8,3 +8,5 @@ package io.github.llh4github.kinoapi.constants
 enum class JwtType {
     ACCESS, REFRESH
 }
+
+const val AUTHENTICATION_HEAD = "Authentication"

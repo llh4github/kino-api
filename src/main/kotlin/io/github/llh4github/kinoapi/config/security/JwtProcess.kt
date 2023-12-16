@@ -24,7 +24,7 @@ import javax.crypto.SecretKey
  * @author llh
  */
 @Component
-class JetProcess(val property: KinoJwtProperty) : Logging {
+class JwtProcess(val property: KinoJwtProperty) : Logging {
     val signKey: SecretKey by lazy {
         Keys.hmacShaKeyFor(property.secretBytes)
     }
